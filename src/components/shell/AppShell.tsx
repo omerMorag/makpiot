@@ -13,6 +13,7 @@ import TestsSection from "@/components/sections/TestsSection";
 import WhereToGoSection from "@/components/sections/WhereToGoSection";
 import MyChancesSection from "@/components/sections/MyChancesSection";
 import InjectionsSection from "@/components/sections/InjectionsSection";
+import ContactSection from "@/components/sections/ContactSection";
 import GuidesSection from "@/components/sections/GuidesSection";
 import CostEstimatorSection from "@/components/sections/CostEstimatorSection";
 import StoriesSection from "@/components/sections/StoriesSection";
@@ -293,6 +294,7 @@ export default function AppShell() {
           {section === "admin-stories" && <AdminStoriesSection />}
           {section === "guides" && <GuidesSection />}
           {section === "injections" && <InjectionsSection />}
+          {section === "contact" && <ContactSection />}
         </main>
 
         <DisclaimerFooter />

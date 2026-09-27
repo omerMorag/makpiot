@@ -1,4 +1,4 @@
-import { BookOpen, Egg, FlaskConical, Heart, ListChecks, MapPin, Syringe } from "lucide-react";
+import { BookOpen, Egg, FlaskConical, Heart, ListChecks, Mail, MapPin, Syringe } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 export type SectionId =
@@ -10,7 +10,8 @@ export type SectionId =
   | "injections"
   | "cost-estimator"
   | "stories"
-  | "admin-stories";
+  | "admin-stories"
+  | "contact";
 
 export interface NavSectionDef {
   id: SectionId;
@@ -31,6 +32,7 @@ export const navSections: NavSectionDef[] = [
   { id: "injections", label: "תקופת הזריקות", icon: Syringe },
   { id: "stories", label: "סיפורים מהמקפיא", icon: Heart },
   { id: "guides", label: "יום השאיבה", icon: BookOpen },
+  { id: "contact", label: "צרי קשר", icon: Mail },
 ];
 
 // "cost-estimator" ("כמה יעלה לי?") הוסתר זמנית לבקשת המשתמשת (24.9.2026):

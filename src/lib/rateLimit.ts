@@ -21,3 +21,11 @@ export const storyReportLimiter = new Ratelimit({
   prefix: "ratelimit:story-report",
   analytics: false,
 });
+
+/** טופס "צרי קשר" — פתוח גם בלי התחברות, ולכן לפי IP (מגבלה נדיבה) */
+export const contactLimiter = new Ratelimit({
+  redis,
+  limiter: Ratelimit.slidingWindow(5, "1 h"),
+  prefix: "ratelimit:contact",
+  analytics: false,
+});
