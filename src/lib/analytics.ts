@@ -51,15 +51,32 @@ function whenReady(fn: () => void) {
   }, 250);
 }
 
+/**
+ * פרמטרי UTM מהכניסה לאתר (למשל ?utm_source=facebook) — מצורפים רק לצפייה
+ * הראשונה, כדי ש-Umami ידע מאיפה הגיעה. שאר הפרמטרים (למשל fbclid) לא נשלחים.
+ */
+let entryUtm: string | null = null;
+function takeEntryUtm(): string {
+  if (entryUtm !== null) return "";
+  const params = new URLSearchParams(window.location.search);
+  const keep = new URLSearchParams();
+  params.forEach((v, k) => {
+    if (k.startsWith("utm_")) keep.set(k, v.slice(0, 100));
+  });
+  entryUtm = keep.toString();
+  return entryUtm ? `?${entryUtm}` : "";
+}
+
 /** צפייה באזור. isHome = כניסה לכתובת הראשית (מסך הפתיחה) */
 export function trackSectionView(section: SectionId, isHome = false) {
-  const url = isHome ? "/" : `/${section}`;
+  const base = isHome ? "/" : `/${section}`;
   const title = isHome ? "מסך הפתיחה" : titleFor(section);
   // השהיה קצרה: בטעינה, האזור מתחיל כ"המסלול שלי" ומתעדכן מיד לפי ה-hash —
   // סופרים רק את האזור שנשאר
   if (debounce) clearTimeout(debounce);
   debounce = setTimeout(() => {
     debounce = null;
+    const url = base + takeEntryUtm();
     whenReady(() => window.umami?.track((props) => ({ ...props, url, title })));
   }, 300);
 }
