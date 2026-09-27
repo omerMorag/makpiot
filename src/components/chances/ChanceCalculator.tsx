@@ -41,10 +41,11 @@ export default function ChanceCalculator() {
   return (
     <div id="calculator" className="scroll-mt-24 rounded-2xl border-2 border-mist-200 bg-white p-5 shadow-card sm:p-7">
       <h2 className="text-center font-sans text-xl font-bold tracking-tight text-ink sm:text-2xl">
-        בואי נחשב את ההערכה שלך
+        בואי נסתכל על הנתונים
       </h2>
       <p className="mx-auto mt-2 max-w-md text-center text-sm leading-relaxed text-ink/60">
-        הזיני את הנתונים כפי שהם מופיעים בסיכום השאיבה שקיבלת מבית החולים או מהמרפאה.
+        אם כבר הקפאת, אפשר להזין את הנתונים מסיכום השאיבה. אם עוד לא — אפשר לבדוק גיל ומספר ביציות שאת
+        שוקלת, ולראות מה המודל מעריך.
       </p>
 
       <div className="mt-5">
@@ -55,7 +56,8 @@ export default function ChanceCalculator() {
         <div>
           <ChanceSliderField
             id="chance-age"
-            label="בת כמה היית כשהביציות הוקפאו?"
+            label="גיל בזמן ההקפאה"
+            helperText="אם עוד לא הקפאת — הגיל שבו את מתכננת להקפיא."
             value={age}
             min={MIN_AGE}
             max={MAX_AGE}
@@ -92,12 +94,12 @@ export default function ChanceCalculator() {
           <div className="flex items-center gap-1.5">
             <ChanceSliderField
               id="chance-eggs"
-              label="כמה ביציות בשלות הוקפאו?"
+              label="מספר ביציות בשלות"
               value={eggs}
               min={MIN_EGGS}
               max={MAX_EGGS}
               onChange={setEggs}
-              helperText="חפשי בסיכום השאיבה את מספר הביציות הבשלות או את הסימון MII."
+              helperText="בסיכום השאיבה זה מופיע כמספר הביציות הבשלות או כ־MII. אפשר גם לנסות מספרים אחרים."
             />
           </div>
           <div className="mt-1.5 flex items-center gap-1.5 text-xs text-ink/50">
@@ -107,7 +109,8 @@ export default function ChanceCalculator() {
         </div>
 
         <div>
-          <p className="text-sm font-semibold text-ink">לכמה ילדים תרצי לבדוק את הסיכוי?</p>
+          <p className="text-sm font-semibold text-ink">לבדוק את ההערכה עבור…</p>
+          <p className="mt-0.5 text-xs text-ink/50">במודל: לידת חי אחת, שתיים או שלוש לפחות.</p>
           <div className="mt-2.5 flex flex-wrap gap-2">
             {familyGoalOptions.map((opt) => (
               <button
@@ -128,7 +131,7 @@ export default function ChanceCalculator() {
             onClick={() => setHasCalculated(true)}
             className="inline-flex items-center gap-2 rounded-full bg-teal-600 px-8 py-3.5 text-sm font-bold tracking-wide text-ink shadow-card transition-all duration-300 hover:-translate-y-0.5 hover:bg-teal-500 hover:shadow-cardHover active:translate-y-0"
           >
-            הציגי לי את ההערכה
+            הצגת ההערכה לפי הנתונים
           </button>
           {hasCalculated && (
             <button
@@ -155,11 +158,11 @@ export default function ChanceCalculator() {
 
           <div className="mt-8">
             <h3 className="text-center font-sans text-base font-bold tracking-tight text-ink sm:text-lg">
-              איך מספר הביציות משפיע על ההערכה?
+              הערכת המודל לפי מספר הביציות, בגיל {age}
             </h3>
             <p className="mx-auto mt-1.5 max-w-md text-center text-sm leading-relaxed text-ink/60">
-              ככל שמוקפאות יותר ביציות בשלות, הסיכוי המצטבר עשוי לעלות – אך הוא לעולם אינו
-              הופך להבטחה.
+              הקו מראה את הערכת המודל ל{familyGoal.outcome} עבור 1 עד 70 ביציות בשלות, בגיל שבחרת. עם יותר
+              ביציות ההערכה עולה, אבל היא אף פעם לא הופכת לוודאות.
             </p>
             <div className="mt-4">
               <ChanceChart age={age} eggs={eggs} familyGoal={familyGoal} />

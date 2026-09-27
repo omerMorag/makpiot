@@ -94,7 +94,7 @@ export default function ChanceChart({ age, eggs, familyGoal }: ChanceChartProps)
           onPointerMove={handlePointerMove}
           onPointerLeave={() => setHoverEggs(null)}
           role="img"
-          aria-label={`גרף: הסיכוי המשוער עולה בהדרגה עם מספר הביציות הבשלות, בגיל ${age}. עבור ${eggs} ביציות, הסיכוי המשוער הוא ${currentPercentLabel}.`}
+          aria-label={`גרף: הערכת המודל ל${familyGoal.outcome} לפי מספר הביציות הבשלות, בגיל ${age}. עבור ${eggs} ביציות, ההערכה היא ${currentPercentLabel}.`}
         >
           {/* קווי רשת אופקיים */}
           {yTicks.map((t) => (
@@ -179,7 +179,7 @@ export default function ChanceChart({ age, eggs, familyGoal }: ChanceChartProps)
       </div>
 
       <p className="mt-2 text-center text-xs text-ink/45">
-        הקו מציג את הגיל שבחרת; ניתן להעביר אצבע או עכבר מעל הגרף כדי לראות ערכים נוספים.
+        ציר אנכי: הערכת המודל באחוזים. אפשר להעביר אצבע או עכבר מעל הגרף כדי לראות ערכים נוספים.
       </p>
     </div>
   );

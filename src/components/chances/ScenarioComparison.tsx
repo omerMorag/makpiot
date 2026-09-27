@@ -19,7 +19,7 @@ export default function ScenarioComparison({ age, eggs, familyGoal }: ScenarioCo
   return (
     <div className="mt-6">
       <h3 className="text-center font-sans text-base font-bold tracking-tight text-ink sm:text-lg">
-        מה היה משתנה עם מספר אחר של ביציות?
+        אותו גיל, מספר ביציות אחר
       </h3>
 
       <div className="mt-4 grid gap-3 sm:grid-cols-3">
@@ -47,7 +47,7 @@ export default function ScenarioComparison({ age, eggs, familyGoal }: ScenarioCo
       </div>
 
       <p className="mt-3 text-center text-xs leading-relaxed text-ink/50">
-        ההשוואה מציגה כיצד מספר הביציות עשוי להשפיע על הסיכוי המצטבר לפי המודל. היא אינה
+        הערכת המודל ל{familyGoal.outcome} עם 5 ביציות פחות או יותר. זו השוואה בתוך המודל בלבד, ולא
         המלצה רפואית לעבור שאיבה נוספת.
       </p>
     </div>

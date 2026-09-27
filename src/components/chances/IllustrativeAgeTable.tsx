@@ -21,7 +21,7 @@ export default function IllustrativeAgeTable() {
               ביציות בשלות
             </th>
             <th className="whitespace-nowrap px-4 py-3 font-semibold text-ink sm:px-5">
-              סיכוי משוער ללידת חי אחת לפחות
+              הערכת המודל: לידת חי אחת לפחות
             </th>
           </tr>
         </thead>

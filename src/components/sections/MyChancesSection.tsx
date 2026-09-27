@@ -12,7 +12,7 @@ import { chanceSourceGroups } from "@/data/chanceContent";
 import HenIllustration from "@/components/hens/HenIllustration";
 
 /**
- * "מה הסיכוי שלי?" — זוקק לפי בקשת המשתמשת (ראו site-build-summary.md
+ * "כמה ביציות להקפיא?" (לשעבר "מה הסיכוי שלי?", שונה 27.9.2026) — זוקק לפי בקשת המשתמשת (ראו site-build-summary.md
  * ל"עדכון" המפורט). המחשבון עצמו (ChanceCalculator, chanceModel, chanceContent)
  * לא שונה בשום דרך פונקציונלית — רק ההצגה סביבו. סדר הסקשנים הסופי:
  * 1. כותרת+פתיח קצר, 2-3. מחשבון+תוצאה (בתוך ChanceCalculator עצמו),
@@ -28,14 +28,14 @@ export default function MyChancesSection() {
       <section className="lg:flex lg:items-center lg:justify-between lg:gap-8">
         <div className="min-w-0 flex-1">
           <h1 className="font-sans text-2xl font-extrabold leading-tight tracking-tight text-ink sm:text-3xl">
-            מה הסיכוי שלי?
+            בואי נעשה קצת סדר במספרים
           </h1>
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink/70 sm:text-base">
-            בחרי את הגיל שבו הוקפאו הביציות ואת מספר הביציות הבשלות שהוקפאו, וקבלי הערכה
-            סטטיסטית לסיכוי ללידת חי.
+            כאן אפשר לראות איך הגיל בזמן ההקפאה ומספר הביציות הבשלות קשורים לנתונים ממחקר — לפי מודל
+            סטטיסטי שפורסם ב־2017 — ומה המגבלות של הערכות כאלה.
           </p>
           <p className="mt-2 max-w-2xl text-xs leading-relaxed text-ink/50 sm:text-sm">
-            החישוב הוא הערכה כללית המבוססת על נתונים מחקריים, ואינו תחזית רפואית אישית.
+            המספרים הם הערכות לפי נתונים של קבוצות נשים, לא תחזית אישית ולא הבטחה.
           </p>
         </div>
 
@@ -55,7 +55,8 @@ export default function MyChancesSection() {
       <section className="mt-10 sm:mt-14">
         <SectionHeading icon={BarChart3} title="אותו מספר ביציות – גיל שונה" />
         <p className="mb-4 text-sm leading-relaxed text-ink/70 sm:text-[15px]">
-          הטבלה ממחישה בקצרה עד כמה הגיל בזמן ההקפאה משפיע על ההערכה.
+          20 ביציות בשלות בשלושה גילים — אלה שלוש הדוגמאות שמופיעות במאמר של Goldman עצמו, והן מראות
+          עד כמה הגיל בזמן ההקפאה משנה את הערכת המודל.
         </p>
         <IllustrativeAgeTable />
       </section>
@@ -68,7 +69,7 @@ export default function MyChancesSection() {
 
       {/* 6. משפך "למה לא כל ביצית קפואה הופכת לילד?" */}
       <section className="mt-10 sm:mt-14">
-        <SectionHeading icon={Workflow} title="למה לא כל ביצית קפואה הופכת לילד?" />
+        <SectionHeading icon={Workflow} title="מביצית קפואה ועד לידה: השלבים בדרך" />
         <ProcessDiagram />
       </section>
 

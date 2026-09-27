@@ -1,5 +1,5 @@
 import type { LucideIcon } from "lucide-react";
-import { MapPin, Percent } from "lucide-react";
+import { Egg, MapPin } from "lucide-react";
 
 export interface ReadingPage {
   href: string;
@@ -19,8 +19,8 @@ export const readingPages: ReadingPage[] = [
   },
   {
     href: "/my-chances",
-    label: "מה הסיכוי שלי?",
-    description: "הערכה סטטיסטית לפי גיל ומספר ביציות בשלות",
-    icon: Percent,
+    label: "כמה ביציות להקפיא?",
+    description: "איך גיל ומספר ביציות קשורים לנתונים המחקריים, ומה המגבלות",
+    icon: Egg,
   },
 ];
