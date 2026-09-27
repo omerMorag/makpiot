@@ -105,6 +105,11 @@ export interface CareUnit {
   website?: SourceLink;
   /** טלפון שמופיע במקור רשמי בלבד, עם ציון המקור */
   phone?: { number: string; sourceLabel: string };
+  /**
+   * לוגו רשמי של המוסד — רק קובץ שהתקבל מהמוסד/באישורו (למשל מערכת
+   * העיתונות שלו), שמור תחת public/logos/. כשאין — מוצג סמל ראשי תיבות.
+   */
+  logo?: { src: string };
 }
 
 function slug(name: string): string {

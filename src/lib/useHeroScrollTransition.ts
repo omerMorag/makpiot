@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback, useLayoutEffect, useState } from "react";
-import { hasSeenIntroInStorage } from "./useJourneyProgress";
 
 export interface HeroScrollTransition {
   /** האם לרנדר <HeroIntro/> + <PersonalIntroSection/> כלל */
@@ -32,9 +31,9 @@ export interface HeroScrollTransition {
  * עצמם; ה-hook הזה לא יודע כלום על GSAP או על scroll-trigger כלשהו —
  * הגלילה עצמה תמיד נשארת גלילה טבעית רגילה של הדפדפן.
  *
- * showHero מוכרעת **פעם אחת** ב-mount (hash מפורש בכתובת, או hasSeenIntro
- * שמור מביקור קודם — נקרא סינכרונית מ-localStorage לפני הציור הראשון, כדי
- * שלא תהיה הבהוב של מסך הפתיחה שנעלם מיד). אחרי זה היא נשארת true לכל
+ * showHero מוכרעת **פעם אחת** ב-mount: כניסה לכתובת הראשית (בלי hash)
+ * תמיד מציגה את מסך הפתיחה — גם בביקור חוזר (בקשת המשתמשת, 27.9.2026);
+ * רק hash מפורש (#tests וכו') מדלג עליו. אחרי זה היא נשארת true לכל
  * אורך הביקור הנוכחי — כשה-Hero+מקטע ההיכרות הם תוכן זרימה רגיל (לא
  * pinned), אין סיבה "להסיר" אותם אחרי שהמשתמשת עברה אותם; הם פשוט נשארים
  * למעלה כמו כל תוכן אחר שגוללים מעליו.
@@ -44,17 +43,19 @@ export function useHeroScrollTransition(): HeroScrollTransition {
   const [chromeVisible, setChromeVisible] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
 
-  // בדיקה ראשונית — גם hash מפורש בכתובת (כניסה ישירה ל-#tests וכו') וגם
-  // hasSeenIntro שמור (ביקור חוזר) מדלגים על ה-Hero לגמרי. useLayoutEffect
-  // כדי שהתיקון יקרה לפני הציור הראשון של הדפדפן, ובלי לחכות ל-hydration
-  // של useJourneyProgress (ר' hasSeenIntroInStorage — קריאה סינכרונית נפרדת
-  // ומכוונת מאותו מפתח localStorage, כדי לא לצמד את שני ה-hooks זה לזה).
+  // בדיקה ראשונית — רק hash מפורש בכתובת (כניסה ישירה ל-#tests וכו') מדלג
+  // על ה-Hero. useLayoutEffect כדי שההחלטה תקרה לפני הציור הראשון.
   useLayoutEffect(() => {
     if (typeof window === "undefined") return;
-    if (window.location.hash || hasSeenIntroInStorage()) {
+    if (window.location.hash) {
       setShowHero(false);
       setChromeVisible(true);
+      return;
     }
+    // כניסה לכתובת הראשית (בלי hash) — תמיד מתחילים בראש מסך הפתיחה (הלוגו),
+    // גם בביקור חוזר, ומשם גוללים להיכרות. הדפדפן לא "משחזר" גלילה ישנה.
+    if ("scrollRestoration" in window.history) window.history.scrollRestoration = "manual";
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, []);
 
   useLayoutEffect(() => {

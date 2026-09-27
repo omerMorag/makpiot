@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
+import { ArrowRight } from "lucide-react";
 import { useJourneyProgress } from "@/lib/useJourneyProgress";
 import { useHashSection } from "@/lib/useHashSection";
 import { useHeroScrollTransition } from "@/lib/useHeroScrollTransition";
@@ -71,6 +72,42 @@ export default function AppShell() {
   useEffect(() => {
     window.scrollTo({ top: 0 });
   }, [section]);
+
+  // --- "חזרה לצ'קליסט" ---
+  // זוכרים איפה המשתמשת הייתה בצ'קליסט (גלילה), כדי שהכפתור יחזיר אותה
+  // בדיוק לאותה נקודה ולא לראש העמוד. השלב שהיה פתוח נשמר ממילא (openStepId).
+  const roadmapScrollRef = useRef(0);
+  const pendingRestoreRef = useRef<number | null>(null);
+  useEffect(() => {
+    if (section !== "roadmap") return;
+    let frame = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        roadmapScrollRef.current = window.scrollY;
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, [section]);
+
+  useEffect(() => {
+    if (section !== "roadmap" || pendingRestoreRef.current == null) return;
+    const y = pendingRestoreRef.current;
+    pendingRestoreRef.current = null;
+    // פעמיים: מיד אחרי הציור, ושוב אחרי שהתוכן (כרטיסים/התקדמות) סיים להתייצב
+    const go = () => window.scrollTo({ top: y, left: 0, behavior: "instant" });
+    requestAnimationFrame(go);
+    setTimeout(go, 200);
+  }, [section]);
+
+  const handleBackToChecklist = useCallback(() => {
+    pendingRestoreRef.current = roadmapScrollRef.current;
+    navigate("roadmap");
+  }, [navigate]);
 
   // --- לחיצה על הלוגו (§2, נפרד מ-handleGoHome/AboutLink למטה) ---
   // גוללת בדיוק לכותרת "המסלול האישי שלך" (#roadmap-title, ר' RoadmapSection.tsx)
@@ -226,6 +263,17 @@ export default function AppShell() {
             בקישור hash ישיר) היה נכנס מתחת ל-header. מ-lg ומעלה ה-header
             מוסתר (lg:hidden) אז lg:py-12 חוזר לריפוד סימטרי רגיל. */}
         <main className="mx-auto max-w-4xl px-3.5 pb-6 pt-[4.75rem] sm:px-6 sm:pb-9 sm:pt-[5.5rem] lg:py-12">
+          {section !== "roadmap" && (
+            <button
+              type="button"
+              onClick={handleBackToChecklist}
+              className="no-print mb-4 inline-flex min-h-[40px] items-center gap-1.5 rounded-full bg-white px-4 text-sm font-semibold text-ink/75 shadow-sm ring-1 ring-inset ring-mist-200 transition-colors hover:bg-mist-50 hover:text-ink sm:mb-5"
+              data-testid="back-to-checklist"
+            >
+              <ArrowRight className="h-4 w-4" strokeWidth={2.5} aria-hidden="true" />
+              חזרה לצ׳קליסט שלי
+            </button>
+          )}
           {section === "roadmap" && (
             <div ref={roadmapTopRef}>
               <RoadmapSection progress={progress} openStepId={openStepId} onOpenStep={openStep} />
