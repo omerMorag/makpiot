@@ -6,6 +6,7 @@ import { ArrowRight } from "lucide-react";
 import { useJourneyProgress } from "@/lib/useJourneyProgress";
 import { useHashSection } from "@/lib/useHashSection";
 import { useHeroScrollTransition } from "@/lib/useHeroScrollTransition";
+import { trackSectionView } from "@/lib/analytics";
 import DisclaimerFooter from "@/components/DisclaimerFooter";
 import RoadmapSection from "@/components/sections/RoadmapSection";
 import TestsSection from "@/components/sections/TestsSection";
@@ -71,6 +72,11 @@ export default function AppShell() {
   // בכל מעבר בין אזורים, גוללים לראש התוכן — כמו מעבר בין "עמודים" אמיתי
   useEffect(() => {
     window.scrollTo({ top: 0 });
+  }, [section]);
+
+  // סטטיסטיקה (Umami): צפייה אחת לכל כניסה לאזור — ר' lib/analytics.ts
+  useEffect(() => {
+    trackSectionView(section, section === "roadmap" && !window.location.hash);
   }, [section]);
 
   // --- "חזרה לצ'קליסט" ---

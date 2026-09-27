@@ -57,6 +57,7 @@ export default function RootLayout({
             src="https://cloud.umami.is/script.js"
             data-website-id={UMAMI_WEBSITE_ID}
             data-exclude-search="true"
+            data-auto-track="false"
             strategy="afterInteractive"
           />
         )}
