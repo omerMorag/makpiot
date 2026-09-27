@@ -8,6 +8,9 @@ export default function DisclaimerFooter() {
         <p className="text-sm leading-relaxed text-ink/60">
           מידע כללי להתארגנות בלבד ואינו מחליף ייעוץ רפואי.
         </p>
+        <p className="text-xs leading-relaxed text-ink/45">
+          האתר משתמש בסטטיסטיקת שימוש אנונימית (Umami), בלי עוגיות. מה שאת מזינה באתר לא נשלח אליה.
+        </p>
       </div>
     </footer>
   );

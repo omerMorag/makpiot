@@ -7,6 +7,16 @@ import "@fontsource/assistant/700.css";
 import "@fontsource/assistant/800.css";
 import "./globals.css";
 import { AuthSessionProvider } from "@/components/shell/AuthSessionProvider";
+import Script from "next/script";
+
+/**
+ * Umami — סטטיסטיקת שימוש אנונימית, בלי עוגיות. נטען רק בפרודקשן ב-Vercel
+ * (לא בפיתוח מקומי ולא בגרסאות Preview), כדי שבדיקות לא ייספרו. נספרות רק
+ * כתובות האזורים (#roadmap, #tests...) — שום נתון מהיומן או מהמחשבון לא
+ * נכנס לכתובת. פרמטרי חיפוש (?...) לא נאספים.
+ */
+const UMAMI_WEBSITE_ID = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID || "6a55e3e5-b929-4295-a664-ff3a6c6a42f4";
+const LOAD_ANALYTICS = process.env.VERCEL_ENV === "production";
 
 const SITE_TITLE = "מקפיאות | הדרך שלך להקפאת ביציות";
 const SITE_DESCRIPTION =
@@ -42,6 +52,14 @@ export default function RootLayout({
     <html lang="he" dir="rtl">
       <body className="min-h-screen font-sans antialiased">
         <AuthSessionProvider>{children}</AuthSessionProvider>
+        {LOAD_ANALYTICS && (
+          <Script
+            src="https://cloud.umami.is/script.js"
+            data-website-id={UMAMI_WEBSITE_ID}
+            data-exclude-search="true"
+            strategy="afterInteractive"
+          />
+        )}
       </body>
     </html>
   );
