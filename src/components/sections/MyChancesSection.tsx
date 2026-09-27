@@ -31,8 +31,7 @@ export default function MyChancesSection() {
             בואי נעשה קצת סדר במספרים
           </h1>
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink/70 sm:text-base">
-            כאן אפשר לראות איך הגיל בזמן ההקפאה ומספר הביציות הבשלות קשורים לנתונים ממחקר — לפי מודל
-            סטטיסטי שפורסם ב־2017 — ומה המגבלות של הערכות כאלה.
+            הזיני גיל ומספר ביציות, ותראי מה מעריך מודל מחקרי — וגם מה המודל הזה לא יודע עלייך.
           </p>
           <p className="mt-2 max-w-2xl text-xs leading-relaxed text-ink/50 sm:text-sm">
             המספרים הם הערכות לפי נתונים של קבוצות נשים, לא תחזית אישית ולא הבטחה.
