@@ -23,6 +23,8 @@ const SITE_DESCRIPTION =
   "מידע, סדר וכלים שיעזרו לך להבין את תהליך הקפאת הביציות ולעבור אותו שלב אחר שלב.";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.makpiot.co.il"),
+  alternates: { canonical: "/" },
   title: SITE_TITLE,
   description: SITE_DESCRIPTION,
   appleWebApp: {
@@ -33,6 +35,7 @@ export const metadata: Metadata = {
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     siteName: "מקפיאות",
+    url: "https://www.makpiot.co.il",
     locale: "he_IL",
     type: "website",
   },

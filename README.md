@@ -72,7 +72,7 @@
 
 ## פריסה (Vercel)
 
-- כל משתני הסביבה שלמעלה (`.env.example`) צריכים להיות מוגדרים גם ב-Vercel → Project Settings → Environment Variables. `NEXTAUTH_URL` בפרודקשן צריך להיות כתובת האתר החי (למשל `https://eggs-mobl.vercel.app`), ו-redirect URI תואם צריך להתווסף ב-Google Cloud Console.
+- כל משתני הסביבה שלמעלה (`.env.example`) צריכים להיות מוגדרים גם ב-Vercel → Project Settings → Environment Variables. `NEXTAUTH_URL` בפרודקשן צריך להיות כתובת האתר החי (`https://www.makpiot.co.il`), ו-redirect URI תואם צריך להתווסף ב-Google Cloud Console.
 - לאחר הוספה/שינוי של משתני סביבה ב-Vercel, נדרש **redeploy** (לא מספיק push בלבד) כדי שהם ייקלטו.
 - מיגרציות **לא** רצות אוטומטית ב-build של Vercel — יש להריץ `npm run db:migrate` (מול `DATABASE_URL_UNPOOLED` של הפרודקשן) לפני/בזמן כל דיפלוי שמוסיף מיגרציה חדשה.
 
