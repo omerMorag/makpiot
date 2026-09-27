@@ -4,11 +4,13 @@ import { contactLimiter } from "@/lib/rateLimit";
 import { CONTACT_TOPICS } from "@/data/contact";
 
 /**
- * טופס "צרי קשר" → מייל לבעלת האתר, דרך Resend (בלי ספרייה נוספת — קריאת
- * REST אחת). נדרשים משתני סביבה: RESEND_API_KEY, CONTACT_TO_EMAIL (לאן
- * לשלוח), ואופציונלי CONTACT_FROM_EMAIL (ברירת מחדל: הכתובת של Resend
- * לבדיקות, שמותר לשלוח ממנה רק למייל של בעלת החשבון). ההודעה לא נשמרת
- * בשום מקום באתר — רק נשלחת במייל.
+ * טופס "צרי קשר". ההודעה נשלחת לאחד היעדים שמוגדרים (או לשניהם):
+ *  1. Google Sheets — שורה חדשה בגיליון, דרך Apps Script (ר'
+ *     docs/contact-sheet-apps-script.gs). משתנים: CONTACT_SHEET_URL,
+ *     CONTACT_SHEET_SECRET.
+ *  2. מייל דרך Resend — RESEND_API_KEY, CONTACT_TO_EMAIL, ואופציונלי
+ *     CONTACT_FROM_EMAIL.
+ * ההודעה לא נשמרת באתר עצמו.
  */
 
 const schema = z.object({
@@ -24,10 +26,19 @@ function escapeHtml(s: string) {
   return s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
 }
 
+/** מונע ממחרוזת שמתחילה ב-= / + / - / @ להתפרש כנוסחה בגיליון */
+function sheetSafe(s: string) {
+  return /^[=+\-@]/.test(s) ? `'${s}` : s;
+}
+
 export async function POST(request: Request) {
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.CONTACT_TO_EMAIL;
-  if (!apiKey || !to) return NextResponse.json({ error: "not_configured" }, { status: 503 });
+  const sheetUrl = process.env.CONTACT_SHEET_URL;
+  const sheetSecret = process.env.CONTACT_SHEET_SECRET;
+  const useMail = !!(apiKey && to);
+  const useSheet = !!(sheetUrl && sheetSecret);
+  if (!useMail && !useSheet) return NextResponse.json({ error: "not_configured" }, { status: 503 });
 
   const ip = (request.headers.get("x-forwarded-for") ?? "").split(",")[0].trim() || "unknown";
   try {
@@ -49,22 +60,49 @@ export async function POST(request: Request) {
   // בוט מילא את שדה המלכודת — עונים "הצליח" בלי לשלוח
   if (website) return NextResponse.json({ ok: true });
 
-  const html = `<div dir="rtl" style="font-family:Arial,sans-serif;font-size:15px;line-height:1.6">
+  const sends: Promise<boolean>[] = [];
+
+  if (useSheet) {
+    sends.push(
+      fetch(sheetUrl!, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          secret: sheetSecret,
+          topic,
+          name: sheetSafe(name),
+          email: sheetSafe(email),
+          message: sheetSafe(message),
+        }),
+      })
+        .then(async (r) => r.ok && (await r.text()).trim() === "ok")
+        .catch(() => false)
+    );
+  }
+
+  if (useMail) {
+    const html = `<div dir="rtl" style="font-family:Arial,sans-serif;font-size:15px;line-height:1.6">
 <p><b>נושא:</b> ${escapeHtml(topic)}</p>
 <p><b>שם:</b> ${escapeHtml(name || "לא צוין")}<br/><b>מייל לחזרה:</b> ${escapeHtml(email || "לא צוין")}</p>
 <hr/><p style="white-space:pre-wrap">${escapeHtml(message)}</p></div>`;
+    sends.push(
+      fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
+        body: JSON.stringify({
+          from: process.env.CONTACT_FROM_EMAIL || "מקפיאות <onboarding@resend.dev>",
+          to: [to],
+          subject: `מקפיאות — ${topic}${name ? ` (${name})` : ""}`,
+          html,
+          ...(email ? { reply_to: email } : {}),
+        }),
+      })
+        .then((r) => r.ok)
+        .catch(() => false)
+    );
+  }
 
-  const res = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
-    body: JSON.stringify({
-      from: process.env.CONTACT_FROM_EMAIL || "מקפיאות <onboarding@resend.dev>",
-      to: [to],
-      subject: `מקפיאות — ${topic}${name ? ` (${name})` : ""}`,
-      html,
-      ...(email ? { reply_to: email } : {}),
-    }),
-  });
-  if (!res.ok) return NextResponse.json({ error: "send_failed" }, { status: 502 });
+  const results = await Promise.all(sends);
+  if (!results.some(Boolean)) return NextResponse.json({ error: "send_failed" }, { status: 502 });
   return NextResponse.json({ ok: true });
 }

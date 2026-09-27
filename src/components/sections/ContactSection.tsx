@@ -11,7 +11,7 @@ const inputCls =
 type Status = "idle" | "sending" | "sent" | "error" | "rate" | "offline";
 
 /**
- * "צרי קשר" — טופס קצר שנשלח במייל לבעלת האתר (ר' api/contact). ההודעה לא
+ * "צרי קשר" — טופס קצר שמגיע לבעלת האתר (גיליון ו/או מייל, ר' api/contact). ההודעה לא
  * נשמרת באתר. מבקשים במפורש לא לכתוב פרטים רפואיים אישיים.
  */
 export default function ContactSection() {
@@ -143,7 +143,7 @@ export default function ContactSection() {
           >
             {status === "sending" ? "שולחת…" : "שליחה"}
           </button>
-          <p className="mt-2 text-xs text-ink/45">ההודעה נשלחת ישירות אליי במייל ולא נשמרת באתר.</p>
+          <p className="mt-2 text-xs text-ink/45">ההודעה מגיעה ישירות אליי ולא נשמרת באתר.</p>
         </form>
       )}
     </div>
