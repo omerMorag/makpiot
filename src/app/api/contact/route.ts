@@ -38,7 +38,9 @@ export async function POST(request: Request) {
   const useMail = !!(apiKey && to);
   const useSheet = !!(sheetUrl && sheetSecret);
 
-  const ip = (request.headers.get("x-forwarded-for") ?? "").split(",")[0].trim() || "unknown";
+  // ב-Vercel, x-real-ip נקבע ע"י הפלטפורמה ולא ניתן לזיוף ע"י השולחת
+  const ip =
+    request.headers.get("x-real-ip") || (request.headers.get("x-forwarded-for") ?? "").split(",").pop()?.trim() || "unknown";
   try {
     const { success } = await contactLimiter.limit(ip);
     if (!success) return NextResponse.json({ error: "rate_limited" }, { status: 429 });

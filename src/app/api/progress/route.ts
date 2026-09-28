@@ -61,6 +61,10 @@ export async function PUT(request: Request) {
   } catch {
     return NextResponse.json({ error: "invalid_json" }, { status: 400 });
   }
+  // הגבלת גודל — ההתקדמות אמורה להיות כמה KB; מונע מילוי Redis בנתוני זבל
+  if (JSON.stringify(body).length > 50_000) {
+    return NextResponse.json({ error: "too_large" }, { status: 413 });
+  }
   if (!isValidStoredProgress(body)) {
     return NextResponse.json({ error: "invalid_shape" }, { status: 400 });
   }
