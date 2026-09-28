@@ -23,7 +23,8 @@ export type HenName =
   | "step-retrieval"
   | "step-trophy"
   | "step-requirements"
-  | "retrieval-day-bag";
+  | "retrieval-day-bag"
+  | "contact";
 
 interface HenConfig {
   file: string;
@@ -121,6 +122,11 @@ const HENS: Record<HenName, HenConfig> = {
     file: "hen-retrieval-day-bag.png",
     alt: "תרנגולת מגיעה מוכנה ליום שאיבת הביציות עם תיק ובו ציוד שימושי",
     defaultSizeClassName: "w-[150px] sm:w-[190px] lg:w-[260px]",
+  },
+  contact: {
+    file: "hen-contact.png",
+    alt: "תרנגולת עם אוזניות ומיקרופון מקלידה במחשב נייד, ליד בועת שיחה",
+    defaultSizeClassName: "w-40 sm:w-48 lg:w-60",
   },
 };
 

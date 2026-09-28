@@ -51,7 +51,7 @@ export default function ContactSection() {
           </p>
         </div>
         <div className="mt-4 flex justify-center lg:mt-0 lg:shrink-0 lg:justify-end">
-          <HenIllustration name="consultation" blob="cream" />
+          <HenIllustration name="contact" blob="mint" />
         </div>
       </section>
 
