@@ -1,15 +1,16 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { BookHeart, MessageSquare } from "lucide-react";
+import { BookHeart, MessageSquare, Users } from "lucide-react";
 import { useIsAdmin } from "@/lib/useIsAdmin";
 import AdminModerationPanel from "@/components/stories/AdminModerationPanel";
 import ContactInbox from "@/components/admin/ContactInbox";
+import UsersPanel from "@/components/admin/UsersPanel";
 
-type Part = "contact" | "stories";
+type Part = "contact" | "stories" | "users";
 
 /**
- * "באקלוג" — אזור אחד למנהלת: פניות מ"צרי קשר" + מודרציית סיפורים, כחלקים
+ * "באקלוג" — אזור אחד למנהלת: פניות מ"צרי קשר", מודרציית סיפורים ומשתמשות, כחלקים
  * באותו עמוד (בלי עוד פריט בתפריט). לא מופיע ב-navSections; נטען דרך dynamic
  * import. useIsAdmin כאן הוא UX בלבד — האכיפה היא requireAdmin() בכל route.
  */
@@ -40,8 +41,9 @@ export default function AdminStoriesSection() {
   }
 
   const tabs: { value: Part; label: string; Icon: typeof MessageSquare; badge?: number | null }[] = [
-    { value: "contact", label: "פניות מהאתר", Icon: MessageSquare, badge: newCount },
-    { value: "stories", label: "סיפורים לאישור", Icon: BookHeart },
+    { value: "contact", label: "פניות", Icon: MessageSquare, badge: newCount },
+    { value: "stories", label: "סיפורים", Icon: BookHeart },
+    { value: "users", label: "משתמשות", Icon: Users },
   ];
 
   return (
@@ -57,7 +59,7 @@ export default function AdminStoriesSection() {
             role="tab"
             aria-selected={part === value}
             onClick={() => setPart(value)}
-            className={`inline-flex min-h-[42px] flex-1 items-center justify-center gap-1.5 rounded-xl px-3 text-sm font-bold transition-colors ${
+            className={`inline-flex min-h-[42px] flex-1 items-center justify-center gap-1.5 rounded-xl px-2 text-[13px] font-bold sm:px-3 sm:text-sm transition-colors ${
               part === value ? "bg-white text-ink shadow-sm" : "text-ink/55 hover:text-ink"
             }`}
             data-testid={`backlog-tab-${value}`}
@@ -72,7 +74,13 @@ export default function AdminStoriesSection() {
       </div>
 
       <div className="mt-6" role="tabpanel">
-        {part === "contact" ? <ContactInbox onChanged={refreshCount} /> : <AdminModerationPanel />}
+        {part === "contact" ? (
+          <ContactInbox onChanged={refreshCount} />
+        ) : part === "stories" ? (
+          <AdminModerationPanel />
+        ) : (
+          <UsersPanel />
+        )}
       </div>
     </div>
   );

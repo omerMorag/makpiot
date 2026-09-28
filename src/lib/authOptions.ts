@@ -19,6 +19,19 @@ export const authOptions: NextAuthOptions = {
   session: {
     strategy: "jwt",
   },
+  events: {
+    // רישום ברשימת המשתמשות (באקלוג → משתמשות). לעולם לא חוסם התחברות.
+    async signIn({ user, profile }) {
+      const id = profile && "sub" in profile && typeof profile.sub === "string" ? profile.sub : null;
+      if (!id) return;
+      try {
+        const { recordSignIn } = await import("./userStore");
+        await recordSignIn({ id, email: user.email, name: user.name });
+      } catch (err) {
+        console.error("recordSignIn failed", err);
+      }
+    },
+  },
   callbacks: {
     async jwt({ token, profile }) {
       // profile.sub הוא המזהה היציב של חשבון ה-Google — נשמר בטוקן פעם אחת בכניסה
