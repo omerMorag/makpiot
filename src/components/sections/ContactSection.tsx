@@ -143,7 +143,7 @@ export default function ContactSection() {
           >
             {status === "sending" ? "שולחת…" : "שליחה"}
           </button>
-          <p className="mt-2 text-xs text-ink/45">ההודעה מגיעה ישירות אליי ולא נשמרת באתר.</p>
+          <p className="mt-2 text-xs text-ink/45">ההודעה מגיעה רק אליי — אף אחד אחר לא רואה אותה.</p>
         </form>
       )}
     </div>

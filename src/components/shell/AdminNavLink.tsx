@@ -1,6 +1,6 @@
 "use client";
 
-import { ShieldAlert } from "lucide-react";
+import { Inbox } from "lucide-react";
 import { useIsAdmin } from "@/lib/useIsAdmin";
 import type { SectionId } from "@/data/navSections";
 
@@ -11,7 +11,7 @@ interface AdminNavLinkProps {
 }
 
 /**
- * קישור הניווט לאזור המודרציה — מחוץ ל-navSections/NavList בכוונה (ר'
+ * קישור הניווט ל"באקלוג" (פניות + מודרציית סיפורים) — מחוץ ל-navSections/NavList בכוונה (ר'
  * navSections.ts), מוצג רק כש-useIsAdmin() מחזיר true. זהו UX בלבד; האכיפה
  * האמיתית היא requireAdmin() בכל route תחת /api/admin/**.
  */
@@ -39,9 +39,9 @@ export default function AdminNavLink({ activeSection, onNavigate, focusable = tr
         }`}
         aria-hidden="true"
       >
-        <ShieldAlert className="h-4 w-4" strokeWidth={2} />
+        <Inbox className="h-4 w-4" strokeWidth={2} />
       </span>
-      מודרציית סיפורים
+      באקלוג
     </a>
   );
 }

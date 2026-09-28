@@ -22,7 +22,7 @@ declare global {
 
 const EXTRA_TITLES: Partial<Record<SectionId, string>> = {
   "cost-estimator": "כמה יעלה לי?",
-  "admin-stories": "ניהול סיפורים",
+  "admin-stories": "באקלוג",
 };
 
 function titleFor(section: SectionId): string {

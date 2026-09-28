@@ -2,15 +2,14 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { contactLimiter } from "@/lib/rateLimit";
 import { CONTACT_TOPICS } from "@/data/contact";
+import { insertContactMessage } from "@/lib/contactStore";
 
 /**
- * טופס "צרי קשר". ההודעה נשלחת לאחד היעדים שמוגדרים (או לשניהם):
- *  1. Google Sheets — שורה חדשה בגיליון, דרך Apps Script (ר'
- *     docs/contact-sheet-apps-script.gs). משתנים: CONTACT_SHEET_URL,
- *     CONTACT_SHEET_SECRET.
- *  2. מייל דרך Resend — RESEND_API_KEY, CONTACT_TO_EMAIL, ואופציונלי
- *     CONTACT_FROM_EMAIL.
- * ההודעה לא נשמרת באתר עצמו.
+ * טופס "צרי קשר". כל פנייה נשמרת במסד הנתונים של האתר (טבלת
+ * contact_messages, ר' lib/contactStore.ts) ומוצגת למנהלת ב"באקלוג", עם
+ * הורדה לאקסל. בנוסף, אם הוגדרו — נשלחת גם לגיליון Google (CONTACT_SHEET_URL
+ * + CONTACT_SHEET_SECRET) ו/או במייל דרך Resend (RESEND_API_KEY +
+ * CONTACT_TO_EMAIL). אלה תוספות לא חובה.
  */
 
 const schema = z.object({
@@ -38,7 +37,6 @@ export async function POST(request: Request) {
   const sheetSecret = process.env.CONTACT_SHEET_SECRET;
   const useMail = !!(apiKey && to);
   const useSheet = !!(sheetUrl && sheetSecret);
-  if (!useMail && !useSheet) return NextResponse.json({ error: "not_configured" }, { status: 503 });
 
   const ip = (request.headers.get("x-forwarded-for") ?? "").split(",")[0].trim() || "unknown";
   try {
@@ -60,7 +58,15 @@ export async function POST(request: Request) {
   // בוט מילא את שדה המלכודת — עונים "הצליח" בלי לשלוח
   if (website) return NextResponse.json({ ok: true });
 
-  const sends: Promise<boolean>[] = [];
+  // היעד העיקרי: מסד הנתונים של האתר
+  const sends: Promise<boolean>[] = [
+    insertContactMessage({ topic, name, email, message })
+      .then(() => true)
+      .catch((err) => {
+        console.error("contact: db insert failed", err);
+        return false;
+      }),
+  ];
 
   if (useSheet) {
     sends.push(
