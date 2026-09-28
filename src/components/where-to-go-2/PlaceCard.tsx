@@ -85,7 +85,7 @@ export default function PlaceCard({
     >
       {isPrivate && state.path === "private" && (
         <p className="mt-1 text-xs text-ink/55">
-          מחיר היחידה בלבד. תשלום לרופא/ה ותרופות — בנפרד, לפי מה שתסכמי.
+          מחיר היחידה בלבד. התשלום לרופא/ה ולתרופות נפרד, לפי מה שתסכמי.
         </p>
       )}
     </PayBox>
@@ -102,7 +102,7 @@ export default function PlaceCard({
     >
       {fundRoute.verificationStatus !== "verified" && (
         <p className="mt-1 text-xs font-semibold text-ink/70">
-          ההסדר עם היחידה הזו עוד לא אומת במקור רשמי — יש לאשר מול{" "}
+          ההסדר עם היחידה הזו עוד לא אומת במקור רשמי, יש לאשר מול{" "}
           {fundRoute.healthFund}.
         </p>
       )}
@@ -143,7 +143,7 @@ export default function PlaceCard({
                 <span className="text-ink/60">
                   ·{" "}
                   {p.amount
-                    ? `${p.amount} — מחיר אפשרי בכפוף לבדיקת זכאות`
+                    ? `${p.amount}, מחיר אפשרי בכפוף לבדיקת זכאות`
                     : "מחיר בבירור"}
                 </span>
                 {r.verificationStatus !== "verified" && (
@@ -405,20 +405,20 @@ function FitLine({
   switch (state.path) {
     case "private":
       text = other
-        ? "בית חולים ציבורי — לא מסלול פרטי"
-        : "יחידה פרטית · בחירת רופא/ה — לברר מול היחידה";
+        ? "בית חולים ציבורי, לא מסלול פרטי"
+        : "יחידה פרטית · בחירת רופא/ה, לברר מול היחידה";
       break;
     case "public":
-      text = other ? "יחידה פרטית — לא בית חולים ציבורי" : "בית חולים ציבורי";
+      text = other ? "יחידה פרטית, לא בית חולים ציבורי" : "בית חולים ציבורי";
       break;
     case "fund":
       if (!state.fund) text = "בחרי קופה כדי לראות התאמה";
-      else if (state.plan === "no") text = "בלי הרובד המתאים — מוצג תשלום עצמי";
+      else if (state.plan === "no") text = "בלי הרובד המתאים, מוצג תשלום עצמי";
       else if (fr) {
         text =
           fr.verificationStatus === "verified"
             ? `מופיע בהסדר ${routeName(fr)}`
-            : `ייתכן הסדר ${routeName(fr)} — דורש אישור מול הקופה`;
+            : `ייתכן הסדר ${routeName(fr)}, דורש אישור מול הקופה`;
         good = fr.verificationStatus === "verified";
       } else {
         text = `לא מצאנו מקור שמקשר את המקום ל${state.fund}`;
@@ -582,7 +582,7 @@ function RouteDetails({ route }: { route: CareRoute }) {
           <>
             {formatShekel(route.priceAmount!, route.priceApprox)}{" "}
             {route.priceBasis}
-            {isFund && " — בכפוף לזכאות"}
+            {isFund && ", בכפוף לזכאות"}
           </>
         ) : (
           "מחיר בבירור"

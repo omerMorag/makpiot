@@ -109,7 +109,7 @@ export default function TestPriceInfoModal({ info, onClose }: TestPriceInfoModal
           </ul>
 
           <p className="mt-3 text-[11px] leading-snug text-ink/45 sm:text-xs">
-            מחירים ותנאי ביצוע עשויים להשתנות — כדאי לוודא מול המקום לפני קביעת הבדיקה.
+            מחירים ותנאי ביצוע עשויים להשתנות, כדאי לוודא מול המקום לפני קביעת הבדיקה.
           </p>
 
           {info.fundLinks.length > 0 && (
@@ -133,7 +133,7 @@ export default function TestPriceInfoModal({ info, onClose }: TestPriceInfoModal
                 ))}
               </ul>
               <p className="mt-1.5 text-[11px] leading-snug text-ink/45 sm:text-xs">
-                תנאי הזכאות שונים בין הקופות — כל קישור מציג את התנאים הספציפיים של הקופה שלו בלבד.
+                תנאי הזכאות שונים בין הקופות, כל קישור מציג את התנאים הספציפיים של הקופה שלו בלבד.
               </p>
             </div>
           )}

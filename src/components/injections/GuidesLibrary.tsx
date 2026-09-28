@@ -29,8 +29,8 @@ export default function GuidesLibrary({ myGuideIds, openGuideId, onToggleGuide, 
         איך מזריקים?
       </h2>
       <p className="mt-1.5 max-w-2xl text-sm leading-relaxed text-ink/65">
-        סרטוני הדרכה בעברית מבתי חולים ומהיצרנים בישראל, והעלון הרשמי של כל תרופה. ודאי שהתכשיר בסרטון זהה לשלך —
-        ההוראות הקובעות הן העלון וההדרכה ביחידה. שאלה על שינוי בהנחיות או על זריקה שלא בוצעה בזמן — פני ליחידה המטפלת.
+        סרטוני הדרכה בעברית מבתי חולים ומהיצרנים בישראל, והעלון הרשמי של כל תרופה. ודאי שהתכשיר בסרטון זהה לשלך.
+        ההוראות הקובעות הן העלון וההדרכה ביחידה. שאלה על שינוי בהנחיות או על זריקה שלא בוצעה בזמן, פני ליחידה המטפלת.
       </p>
 
       {mine.length > 0 && (
@@ -127,7 +127,7 @@ function GuideCard({ guide, open }: { guide: InjectionGuide; open: boolean; onTo
         className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-teal-700 hover:underline"
       >
         <FileText className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
-        עלון לצרכן — משרד הבריאות
+        עלון לצרכן (משרד הבריאות)
       </a>
     </div>
   );

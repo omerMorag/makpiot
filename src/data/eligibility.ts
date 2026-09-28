@@ -15,6 +15,6 @@ export const mohCircularSource: SourceLink = {
 };
 
 export const mohStorageSource: SourceLink = {
-  label: "משרד הבריאות — שירות הקפאת ביציות",
+  label: "משרד הבריאות: שירות הקפאת ביציות",
   url: "https://www.gov.il/he/service/oocyte-cryopreservation",
 };

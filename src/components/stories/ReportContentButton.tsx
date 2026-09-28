@@ -84,7 +84,7 @@ export default function ReportContentButton({ storyId }: { storyId: string }) {
         rows={2}
         className="mt-2 w-full rounded-lg border border-mist-200 bg-white p-2 text-xs text-ink/80 focus:border-teal-400"
       />
-      {submitState === "error" && <p className="mt-1 text-deep">השליחה נכשלה — נסי שוב.</p>}
+      {submitState === "error" && <p className="mt-1 text-deep">השליחה נכשלה. נסי שוב.</p>}
       <button
         type="button"
         onClick={submit}

@@ -113,9 +113,9 @@ export default function ShareStoryForm({ mode, storyId, initialValues, onSuccess
       // ממוקדת כשהחסימה היא אורך הטקסט, כדי שלא יישאר בלי שום הסבר (§ באג
       // שדווח: "לא נותן לפרסם" בלי שום אינדיקציה מדוע).
       if (titleLength < MIN_TITLE_LENGTH) {
-        setErrorMessage(`הכותרת קצרה מדי — נדרשים לפחות ${MIN_TITLE_LENGTH} תווים.`);
+        setErrorMessage(`הכותרת קצרה מדי. נדרשים לפחות ${MIN_TITLE_LENGTH} תווים.`);
       } else if (storyLength < MIN_STORY_LENGTH) {
-        setErrorMessage(`הסיפור קצר מדי — נדרשים לפחות ${MIN_STORY_LENGTH} תווים (יש כרגע ${storyLength}).`);
+        setErrorMessage(`הסיפור קצר מדי. נדרשים לפחות ${MIN_STORY_LENGTH} תווים (יש כרגע ${storyLength}).`);
       } else if (!consent) {
         setErrorMessage("יש לאשר את הסכמת הפרסום לפני השליחה.");
       }
@@ -134,7 +134,7 @@ export default function ShareStoryForm({ mode, storyId, initialValues, onSuccess
 
       if (!res.ok) {
         setSubmitState("error");
-        setErrorMessage("השליחה נכשלה — בדקי שהכותרת והסיפור מלאים כנדרש ונסי שוב.");
+        setErrorMessage("השליחה נכשלה. בדקי שהכותרת והסיפור מלאים כנדרש ונסי שוב.");
         return;
       }
 
@@ -145,7 +145,7 @@ export default function ShareStoryForm({ mode, storyId, initialValues, onSuccess
       }
     } catch {
       setSubmitState("error");
-      setErrorMessage("השליחה נכשלה — נסי שוב.");
+      setErrorMessage("השליחה נכשלה. נסי שוב.");
     }
   };
 
@@ -308,7 +308,7 @@ export default function ShareStoryForm({ mode, storyId, initialValues, onSuccess
         <p className={`mt-1 text-xs ${storyTooShort ? "font-semibold text-deep" : "text-ink/40"}`}>
           {storyLength} תווים
           {storyTooShort
-            ? ` — נדרשים לפחות ${MIN_STORY_LENGTH} (עוד ${MIN_STORY_LENGTH - storyLength})`
+            ? `, נדרשים לפחות ${MIN_STORY_LENGTH} (עוד ${MIN_STORY_LENGTH - storyLength})`
             : ` (מינימום ${MIN_STORY_LENGTH})`}
         </p>
       </div>

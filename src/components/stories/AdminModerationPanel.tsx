@@ -85,7 +85,7 @@ function RedactForm({ story, onDone }: { story: AdminStoryRow; onDone: () => voi
 
   return (
     <div className="mt-3 flex flex-col gap-2.5 rounded-xl border-2 border-warm-300 bg-warm-100/30 p-3">
-      <p className="text-xs font-bold text-ink/60">עריכת פרטים מזהים — לצורך הסרת פרטים מזהים בלבד</p>
+      <p className="text-xs font-bold text-ink/60">עריכת פרטים מזהים, לצורך הסרת פרטים מזהים בלבד</p>
       <input value={title} onChange={(e) => setTitle(e.target.value)} className="rounded-lg border border-mist-200 bg-white px-2.5 py-1.5 text-sm" placeholder="כותרת" />
       <div className="flex items-center gap-2">
         <input type="checkbox" checked={isAnonymous} onChange={(e) => setIsAnonymous(e.target.checked)} className="h-4 w-4 accent-teal-600" />
@@ -161,7 +161,7 @@ function StoriesTab() {
                   <div className="min-w-0">
                     <h3 className="text-sm font-bold text-ink">{story.title}</h3>
                     <p className="mt-0.5 text-xs text-ink/50">
-                      {story.isAnonymous ? "בעילום שם" : story.displayName || "—"} ·{" "}
+                      {story.isAnonymous ? "בעילום שם" : story.displayName || "-"} ·{" "}
                       {new Date(story.createdAt).toLocaleDateString("he-IL")}
                     </p>
                   </div>
@@ -323,7 +323,7 @@ export default function AdminModerationPanel() {
     <div>
       <div className="mb-4 flex items-center gap-2 rounded-2xl border-2 border-warm-300 bg-warm-100/40 p-3">
         <ShieldAlert className="h-4 w-4 text-deep" strokeWidth={2.25} />
-        <p className="text-xs font-semibold text-ink/70">אזור מנהלת — כל הפעולות כאן משפיעות על תוכן ציבורי.</p>
+        <p className="text-xs font-semibold text-ink/70">אזור מנהלת, כל הפעולות כאן משפיעות על תוכן ציבורי.</p>
       </div>
 
       <div className="flex gap-2">

@@ -36,7 +36,7 @@ export default function TestsSection({ progress }: TestsSectionProps) {
             הבדיקות שלי
           </h1>
           <p className="mt-1.5 max-w-lg text-sm leading-relaxed text-ink/60 sm:text-base">
-            צ׳קליסט הבדיקות שרוב היחידות מבקשות בשלב המקדים — סמני מה כבר בוצע.
+            צ׳קליסט הבדיקות שרוב היחידות מבקשות בשלב המקדים, סמני מה כבר בוצע.
           </p>
         </div>
 

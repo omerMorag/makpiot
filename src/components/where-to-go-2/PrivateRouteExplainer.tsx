@@ -22,23 +22,23 @@ export default function PrivateRouteExplainer() {
         </p>
         <ul className="mt-2.5 space-y-1.5 text-[13px] leading-relaxed text-ink/75 sm:text-sm">
           <li>
-            <span className="font-semibold text-ink">פגישת רופא/ה פרטית:</span> בערך 1,200–2,000 ₪.
+            <span className="font-semibold text-ink">פגישת רופא/ה פרטית:</span> בערך 1,200-2,000 ₪.
           </li>
           <li>
-            <span className="font-semibold text-ink">סבב ביחידה פרטית:</span> בערך 9,000–10,000 ₪ לפי דיווחי מחירים שפורסמו
-            — לא מחיר מאומת או עדכני של יחידה מסוימת.
+            <span className="font-semibold text-ink">סבב ביחידה פרטית:</span> בערך 9,000-10,000 ₪ לפי דיווחי מחירים שפורסמו
+           (לא מחיר מאומת או עדכני של יחידה מסוימת).
           </li>
           <li>
-            <span className="font-semibold text-ink">תרופות:</span> לעיתים סביב 3,000–5,000 ₪, אך העלות יכולה להשתנות מאוד ואף
+            <span className="font-semibold text-ink">תרופות:</span> לעיתים סביב 3,000-5,000 ₪, אך העלות יכולה להשתנות מאוד ואף
             להיות גבוהה יותר.
           </li>
           <li>
-            <span className="font-semibold text-ink">סך הכול לתכנון:</span> בערך 13,000–20,000 ₪ לסבב פרטי מלא, ולעיתים יותר.
+            <span className="font-semibold text-ink">סך הכול לתכנון:</span> בערך 13,000-20,000 ₪ לסבב פרטי מלא, ולעיתים יותר.
           </li>
         </ul>
         <p className="mt-2.5 text-xs leading-relaxed text-ink/55">
           זו הערכה בלבד; אין להשתמש בה כמחשבון או כמחיר אישי. ״תשלום ליחידה״ יכול לכלול דברים שונים בכל מקום (מעקבים, הרדמה,
-          הקפאה, תקופת אחסון), ופגישת הייעוץ לא בהכרח מכסה את הליווי של הרופא/ה לאורך כל הסבב — כדאי לשאול על כל רכיב.
+          הקפאה, תקופת אחסון), ופגישת הייעוץ לא בהכרח מכסה את הליווי של הרופא/ה לאורך כל הסבב, כדאי לשאול על כל רכיב.
         </p>
       </div>
     </section>

@@ -13,7 +13,7 @@ function StatTile({ label, min, max }: { label: string; min: number; max: number
     <div className="rounded-2xl border-2 border-mist-200 bg-white p-4 shadow-card sm:p-5">
       <p className="text-xs font-medium text-ink/50">{label}</p>
       <p className="mt-2 font-sans text-xl font-extrabold text-ink sm:text-2xl" dir="ltr">
-        {min === max ? formatILS(min) : `${formatILS(min)} – ${formatILS(max)}`}
+        {min === max ? formatILS(min) : `${formatILS(min)} עד ${formatILS(max)}`}
       </p>
     </div>
   );
@@ -69,7 +69,7 @@ export default function CostEstimatorResultCard({ result, priceLastUpdatedAt }: 
         <StatTile label="עלות משוערת מינימלית" min={totalMin} max={totalMin} />
         <StatTile label="עלות משוערת מקסימלית" min={totalMax} max={totalMax} />
         <StatTile label={`עלות לסבב (מתוך ${cyclesCount})`} min={perCycleMin} max={perCycleMax} />
-        <StatTile label="עלות כוללת — כל הסבבים" min={totalMin} max={totalMax} />
+        <StatTile label="עלות כוללת לכל הסבבים" min={totalMin} max={totalMax} />
       </div>
 
       <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -92,7 +92,7 @@ export default function CostEstimatorResultCard({ result, priceLastUpdatedAt }: 
                   <span className="flex items-center gap-2">
                     {item.source !== "unpriced" && (
                       <span className="text-sm font-bold text-ink" dir="ltr">
-                        {item.min === item.max ? formatILS(item.min ?? 0) : `${formatILS(item.min ?? 0)} – ${formatILS(item.max ?? 0)}`}
+                        {item.min === item.max ? formatILS(item.min ?? 0) : `${formatILS(item.min ?? 0)} עד ${formatILS(item.max ?? 0)}`}
                       </span>
                     )}
                     <span
@@ -113,7 +113,7 @@ export default function CostEstimatorResultCard({ result, priceLastUpdatedAt }: 
       {hasUnpricedItems && (
         <p className="mt-3 flex items-center gap-1.5 text-xs font-medium text-deep">
           <AlertTriangle className="h-3.5 w-3.5 shrink-0" strokeWidth={2.25} />
-          חלק מהפריטים לא נכללו בסכום כי המחיר עבורם טרם עודכן — ניתן להזין עבורם סכום ידני בשלבים למעלה.
+          חלק מהפריטים לא נכללו בסכום כי המחיר עבורם טרם עודכן, ניתן להזין עבורם סכום ידני בשלבים למעלה.
         </p>
       )}
 
@@ -122,7 +122,7 @@ export default function CostEstimatorResultCard({ result, priceLastUpdatedAt }: 
           המחירים הם הערכה בלבד ועשויים להשתנות. מומלץ לאמת אותם מול קופת החולים והמרפאה.
         </p>
         {lastUpdatedLabel && <p className="mt-1">מחירי הבסיס עודכנו לאחרונה ב-{lastUpdatedLabel}.</p>}
-        <p className="mt-1">זהו כלי כספי בלבד ואינו כלי רפואי — אין להסתמך עליו כייעוץ רפואי.</p>
+        <p className="mt-1">זהו כלי כספי בלבד ואינו כלי רפואי, אין להסתמך עליו כייעוץ רפואי.</p>
       </DisclaimerNote>
     </div>
   );

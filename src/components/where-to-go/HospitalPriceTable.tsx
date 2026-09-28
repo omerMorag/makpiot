@@ -141,11 +141,11 @@ export default function HospitalPriceTable({ rows }: HospitalPriceTableProps) {
                   <dl className="grid gap-2.5 text-sm leading-relaxed text-ink/70 sm:grid-cols-2">
                     <div>
                       <dt className="text-xs font-semibold text-ink/45">מה ידוע שכלול</dt>
-                      <dd className="mt-0.5">{row.whatsIncluded ?? "לא פורסם — יש לברר מול היחידה"}</dd>
+                      <dd className="mt-0.5">{row.whatsIncluded ?? "לא פורסם, יש לברר מול היחידה"}</dd>
                     </div>
                     <div>
                       <dt className="text-xs font-semibold text-ink/45">טלפון וזמני המתנה</dt>
-                      <dd className="mt-0.5">לא זמין באתר — יש לברר מול היחידה</dd>
+                      <dd className="mt-0.5">לא זמין באתר, יש לברר מול היחידה</dd>
                     </div>
                     {row.needsVerify && (
                       <div>

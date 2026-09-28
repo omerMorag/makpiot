@@ -121,7 +121,7 @@ export default function FlowPicker({ state, onChange }: FlowPickerProps) {
           </div>
           {state.region === "מרכז" && (
             <p className="mt-2 text-xs text-ink/55">
-              בתי החולים בירושלים מופיעים בנפרד —{" "}
+              בתי החולים בירושלים מופיעים בנפרד.{" "}
               <button type="button" onClick={() => set({ region: "ירושלים" })} className="font-semibold text-teal-700 hover:underline">
                 להצגת ירושלים
               </button>
@@ -189,7 +189,7 @@ function FundPicker({ state, set }: { state: FlowState; set: (p: Partial<FlowSta
           </div>
           {state.plan === "no" && (
             <p className="mt-2 rounded-xl bg-white/80 px-3 py-2 text-xs leading-relaxed text-ink/70">
-              בלי {plan} ההטבה לא חלה. אפשר לבדוק את המקומות בתשלום עצמי — הם מוצגים למטה.
+              בלי {plan} ההטבה לא חלה. אפשר לבדוק את המקומות בתשלום עצמי, הם מוצגים למטה.
             </p>
           )}
         </div>

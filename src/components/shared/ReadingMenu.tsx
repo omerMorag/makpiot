@@ -61,7 +61,7 @@ export default function ReadingMenu({ className = "" }: ReadingMenuProps) {
       </button>
 
       {/*
-        הפאנל וה-FloatingPortal מורכבים תמיד (לא מותנים ב-open) — ראו
+        הפאנל וה-FloatingPortal מורכבים תמיד (לא מותנים ב-open), ראו
         התיעוד ב-useFloatingPosition.ts. הנראות/אינטראקטיביות נשלטות רק
         דרך style (visibility/pointerEvents) ו-aria-hidden.
       */}

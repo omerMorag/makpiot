@@ -98,7 +98,7 @@ export default function JournalTable({ cycle, today, onOpenDay }: { cycle: Journ
                       ))}
                     </ul>
                   ) : (
-                    <span className="text-ink/30">—</span>
+                    <span className="text-ink/30">-</span>
                   )}
                 </td>
                 <td className="px-2 py-2.5 text-xs sm:hidden" data-testid="cell-mobile-mon">
@@ -113,7 +113,7 @@ export default function JournalTable({ cycle, today, onOpenDay }: { cycle: Journ
                       </span>
                     ))
                   ) : (
-                    <span className="text-ink/30">—</span>
+                    <span className="text-ink/30">-</span>
                   )}
                 </td>
                 {PRESET_TESTS.map((p) => {
@@ -126,7 +126,7 @@ export default function JournalTable({ cycle, today, onOpenDay }: { cycle: Journ
                           {v.unit && <span className="text-xs text-ink/50"> {v.unit}</span>}
                         </bdi>
                       ) : (
-                        <span className="text-ink/30">—</span>
+                        <span className="text-ink/30">-</span>
                       )}
                     </td>
                   );
@@ -147,7 +147,7 @@ export default function JournalTable({ cycle, today, onOpenDay }: { cycle: Journ
                     type="button"
                     onClick={() => onOpenDay(d)}
                     className="whitespace-nowrap rounded-full px-2.5 py-1 text-xs font-semibold text-teal-700 hover:bg-teal-50"
-                    aria-label={`${empty ? "תיעוד" : "פתיחה"} — ${n >= 1 ? `יום ${n}` : formatDateShort(d)}`}
+                    aria-label={`${empty ? "תיעוד" : "פתיחה"}: ${n >= 1 ? `יום ${n}` : formatDateShort(d)}`}
                   >
                     {empty ? "תיעוד" : "פתיחה"}
                   </button>

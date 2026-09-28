@@ -10,24 +10,24 @@ interface WhereToGoSectionProps {
 }
 
 const OFFICIAL_SOURCES: { label: string; url: string }[] = [
-  { label: "משרד הבריאות — שמירת ביציות", url: "https://www.gov.il/he/service/oocyte-cryopreservation" },
-  { label: "מכבי — שימור מסיבות רפואיות", url: "https://www.maccabi4u.co.il/eligibilites/1834/" },
-  { label: "מכבי — שימור מסיבות שאינן רפואיות (מכבי שלי)", url: "https://www.maccabi4u.co.il/eligibilites/117173/" },
+  { label: "משרד הבריאות: שמירת ביציות", url: "https://www.gov.il/he/service/oocyte-cryopreservation" },
+  { label: "מכבי: שימור מסיבות רפואיות", url: "https://www.maccabi4u.co.il/eligibilites/1834/" },
+  { label: "מכבי: שימור מסיבות שאינן רפואיות (מכבי שלי)", url: "https://www.maccabi4u.co.il/eligibilites/117173/" },
   {
-    label: "כללית מושלם — שימור פוריות",
+    label: "כללית מושלם: שימור פוריות",
     url: "https://mushlam.clalit.co.il/he/content_worlds/pregnancy-and-childbirth/Pages/Fertility-preservation.aspx",
   },
-  { label: "כללית — זכויות שימור פריון", url: "https://www.clalit.co.il/he/myrights/fertility/Pages/fertility-preservation.aspx" },
+  { label: "כללית: זכויות שימור פריון", url: "https://www.clalit.co.il/he/myrights/fertility/Pages/fertility-preservation.aspx" },
   {
     label: "תקנון מאוחדת שיא, ספטמבר 2026",
     url: "https://www.meuhedet.co.il/media/8952/%D7%A9%D7%99%D7%90-%D7%A1%D7%A4%D7%98%D7%9E%D7%91%D7%A8-2026.pdf",
   },
   {
-    label: "לאומית — הקפאת ביציות מסיבות לא רפואיות",
+    label: "לאומית: הקפאת ביציות מסיבות לא רפואיות",
     url: "https://www.leumit.co.il/lobby-rights/rightspage/zakautpage/?sid=849&zid=116675",
   },
   {
-    label: "לאומית — עדכון לאומית זהב וכסף, יולי 2026",
+    label: "לאומית: עדכון לאומית זהב וכסף, יולי 2026",
     url: "https://www.leumit.co.il/insurance-policies/leumit-silver-and-gold/leumit-gold-and-silver-update/",
   },
 ];
@@ -70,7 +70,7 @@ export default function WhereToGoSection({ progress }: WhereToGoSectionProps) {
       </section>
 
       <section className="mt-6 text-xs leading-relaxed text-ink/55">
-        <p className="font-semibold text-ink/60">מקורות רשמיים עיקריים (נבדקו ב־23–25.9.2026):</p>
+        <p className="font-semibold text-ink/60">מקורות רשמיים עיקריים (נבדקו ב־23-25.9.2026):</p>
         <p className="mt-0.5">המקור של כל מחיר מופיע בכרטיס המקום, תחת ״פרטים ומקורות״.</p>
         <ul className="mt-2 space-y-1">
           {OFFICIAL_SOURCES.map((s) => (

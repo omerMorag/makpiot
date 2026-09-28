@@ -55,7 +55,7 @@ export default function UsersPanel() {
         ))}
       </div>
       <p className="mt-2 text-xs text-ink/45">
-        נספרות משתמשות שהתחברו עם Google מאז שהרשימה נוספה לאתר. מי שמשתמשת בלי להתחבר לא מופיעה כאן — אותן רואים ב-Umami.
+        נספרות משתמשות שהתחברו עם Google מאז שהרשימה נוספה לאתר. מי שמשתמשת בלי להתחבר לא מופיעה כאן. אותן רואים ב-Umami.
       </p>
 
       <div className="mt-5 flex items-center justify-between gap-2">

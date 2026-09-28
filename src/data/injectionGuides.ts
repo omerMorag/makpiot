@@ -52,10 +52,10 @@ export const injectionGuides: InjectionGuide[] = [
     latinName: "GONAL-f",
     aliases: ["גונאל", "גונאל-אף", "גונאל אף", "גונל", "gonal", "gonal-f", "gonal f", "gonalf"],
     activeIngredient: "פוליטרופין אלפא (Follitropin alfa)",
-    form: "עט מוכן לשימוש — תמיסה להזרקה תת-עורית",
+    form: "עט מוכן לשימוש, תמיסה להזרקה תת-עורית",
     strengths: "300 IU/0.48 mL, 450 IU/0.72 mL, 900 IU/1.44 mL",
     leaflet: {
-      label: "עלון לצרכן — גונאל-אף עט (משרד הבריאות)",
+      label: "עלון לצרכן: גונאל-אף עט (משרד הבריאות)",
       url: "https://mohpublic.z6.web.core.windows.net/IsraelDrugs/Rishum01_17_297385824.pdf",
       detail: "עברית, נערך ביולי 2024",
     },
@@ -67,9 +67,9 @@ export const injectionGuides: InjectionGuide[] = [
       },
     ],
     extraSources: [
-      { label: "GONAL-f — מידע רשמי של סוכנות התרופות האירופית (EMA)", url: "https://www.ema.europa.eu/en/medicines/human/EPAR/gonal-f", detail: "אנגלית" },
+      { label: "GONAL-f: מידע רשמי של סוכנות התרופות האירופית (EMA)", url: "https://www.ema.europa.eu/en/medicines/human/EPAR/gonal-f", detail: "אנגלית" },
     ],
-    missing: "לא נבדק אם הסרטון מציג בדיוק את העט המשווק כיום — ההוראות הקובעות הן העלון וההדרכה ביחידה.",
+    missing: "לא נבדק אם הסרטון מציג בדיוק את העט המשווק כיום, ההוראות הקובעות הן העלון וההדרכה ביחידה.",
   },
   {
     id: "pergoveris",
@@ -77,10 +77,10 @@ export const injectionGuides: InjectionGuide[] = [
     latinName: "Pergoveris",
     aliases: ["פרגובריס", "פרגובאריס", "pergoveris"],
     activeIngredient: "פוליטרופין אלפא + לוטרופין אלפא",
-    form: "עט מוכן לשימוש — תמיסה להזרקה תת-עורית",
+    form: "עט מוכן לשימוש, תמיסה להזרקה תת-עורית",
     strengths: "300+150 IU, 450+225 IU, 900+450 IU",
     leaflet: {
-      label: "עלון לצרכן והוראות שימוש בעט — פרגובריס (משרד הבריאות)",
+      label: "עלון לצרכן והוראות שימוש בעט: פרגובריס (משרד הבריאות)",
       url: "https://mohpublic.z6.web.core.windows.net/IsraelDrugs/Rishum01_9_275140423.pdf",
       detail: "עברית, אנגלית וערבית; עלון מ-2022",
     },
@@ -92,9 +92,9 @@ export const injectionGuides: InjectionGuide[] = [
       },
     ],
     extraSources: [
-      { label: "Pergoveris — מידע רשמי של EMA", url: "https://www.ema.europa.eu/en/medicines/human/EPAR/pergoveris", detail: "אנגלית; באיחוד קיימים גם בקבוקוני אבקה" },
+      { label: "Pergoveris: מידע רשמי של EMA", url: "https://www.ema.europa.eu/en/medicines/human/EPAR/pergoveris", detail: "אנגלית; באיחוד קיימים גם בקבוקוני אבקה" },
     ],
-    missing: "לא נבדק אם הסרטון מציג את העט או את הבקבוקונים. אם קיבלת פרגובריס בבקבוקוני אבקה — העלון כאן הוא לעט, ויש לבקש מהיחידה את העלון המתאים.",
+    missing: "לא נבדק אם הסרטון מציג את העט או את הבקבוקונים. אם קיבלת פרגובריס בבקבוקוני אבקה, העלון כאן הוא לעט, ויש לבקש מהיחידה את העלון המתאים.",
   },
   {
     id: "menopur-multidose",
@@ -102,22 +102,22 @@ export const injectionGuides: InjectionGuide[] = [
     latinName: "Menopur Multidose",
     aliases: ["מנופור מולטידוז", "מנופור 600", "מנופור 1200", "menopur multidose", "menopur 600", "menopur 1200"],
     activeIngredient: "מנוטרופין (hMG)",
-    form: "אבקה וממס להכנת תמיסה להזרקה — רב-מנתי",
+    form: "אבקה וממס להכנת תמיסה להזרקה, רב-מנתי",
     strengths: "600 IU, 1200 IU",
     leaflet: {
-      label: "עלון לצרכן — מנופור מולטידוז 600/1200 (משרד הבריאות)",
+      label: "עלון לצרכן: מנופור מולטידוז 600/1200 (משרד הבריאות)",
       url: "https://mohpublic.z6.web.core.windows.net/IsraelDrugs/Rishum_16_341741020.pdf",
-      detail: "אנגלית, מאי 2020 — עלון בעברית לא אותר בבדיקה, אפשר לחפש במאגר",
+      detail: "אנגלית, מאי 2020. עלון בעברית לא אותר בבדיקה, אפשר לחפש במאגר",
     },
     extraSources: [],
     videos: [
       {
-        label: "סרטון הדרכה — מולטידוז 600",
+        label: "סרטון הדרכה: מולטידוז 600",
         url: "https://www.ferring.co.il/our-products/menopur-600-injection-tutorial/",
         detail: "פרינג ישראל · עברית, ערבית, רוסית ואנגלית",
       },
       {
-        label: "סרטון הדרכה — מולטידוז 1200",
+        label: "סרטון הדרכה: מולטידוז 1200",
         url: "https://www.ferring.co.il/our-products/menopur-1200-injection-tutorial/",
         detail: "פרינג ישראל · עברית, ערבית ורוסית",
       },
@@ -132,7 +132,7 @@ export const injectionGuides: InjectionGuide[] = [
     form: "אבקה וממס להכנת תמיסה להזרקה (בקבוקון חד-מנתי)",
     strengths: "75 IU",
     leaflet: {
-      label: "עלון לצרכן — מנופור 75 (משרד הבריאות)",
+      label: "עלון לצרכן: מנופור 75 (משרד הבריאות)",
       url: "https://mohpublic.z6.web.core.windows.net/IsraelDrugs/Rishum_16_338405420.pdf",
       detail: "עברית, מאי 2020",
     },
@@ -152,12 +152,12 @@ export const injectionGuides: InjectionGuide[] = [
     latinName: "Orgalutran",
     aliases: ["אורגלוטרן", "אורגלוטראן", "orgalutran", "ganirelix", "גנירליקס"],
     activeIngredient: "גנירליקס (Ganirelix)",
-    form: "מזרק מוכן לשימוש — תמיסה להזרקה תת-עורית",
+    form: "מזרק מוכן לשימוש, תמיסה להזרקה תת-עורית",
     strengths: "0.25 mg/0.5 mL",
     leaflet: {
-      label: "עלון לצרכן — אורגלוטרן (משרד הבריאות)",
+      label: "עלון לצרכן: אורגלוטרן (משרד הבריאות)",
       url: "https://mohpublic.z6.web.core.windows.net/IsraelDrugs/Rishum01_1_1162301221.pdf",
-      detail: "אנגלית, ספטמבר 2021 — עלון בעברית לא אותר בבדיקה, אפשר לחפש במאגר",
+      detail: "אנגלית, ספטמבר 2021. עלון בעברית לא אותר בבדיקה, אפשר לחפש במאגר",
     },
     videos: [
       {
@@ -167,9 +167,9 @@ export const injectionGuides: InjectionGuide[] = [
       },
     ],
     extraSources: [
-      { label: "Orgalutran — מידע רשמי של EMA", url: "https://www.ema.europa.eu/en/medicines/human/EPAR/orgalutran", detail: "אנגלית" },
+      { label: "Orgalutran: מידע רשמי של EMA", url: "https://www.ema.europa.eu/en/medicines/human/EPAR/orgalutran", detail: "אנגלית" },
     ],
-    missing: "לא נבדק אם המזרק בסרטון זהה בדיוק לשלך — ההוראות הקובעות הן העלון וההדרכה ביחידה.",
+    missing: "לא נבדק אם המזרק בסרטון זהה בדיוק לשלך, ההוראות הקובעות הן העלון וההדרכה ביחידה.",
   },
   {
     id: "cetrotide",
@@ -180,7 +180,7 @@ export const injectionGuides: InjectionGuide[] = [
     form: "אבקה וממס להכנת תמיסה להזרקה תת-עורית",
     strengths: "0.25 mg",
     leaflet: {
-      label: "עלון לצרכן — צטרוטייד 0.25 (משרד הבריאות)",
+      label: "עלון לצרכן: צטרוטייד 0.25 (משרד הבריאות)",
       url: "https://mohpublic.z6.web.core.windows.net/IsraelDrugs/Rishum01_19_681239324.pdf",
       detail: "עברית, נובמבר 2024",
     },
@@ -192,9 +192,9 @@ export const injectionGuides: InjectionGuide[] = [
       },
     ],
     extraSources: [
-      { label: "Cetrotide — מידע רשמי של EMA", url: "https://www.ema.europa.eu/en/medicines/human/EPAR/cetrotide", detail: "אנגלית" },
+      { label: "Cetrotide: מידע רשמי של EMA", url: "https://www.ema.europa.eu/en/medicines/human/EPAR/cetrotide", detail: "אנגלית" },
     ],
-    missing: "לא נבדק אם הערכה בסרטון זהה בדיוק לשלך — ההוראות הקובעות הן העלון וההדרכה ביחידה.",
+    missing: "לא נבדק אם הערכה בסרטון זהה בדיוק לשלך, ההוראות הקובעות הן העלון וההדרכה ביחידה.",
   },
   {
     id: "ovitrelle",
@@ -202,10 +202,10 @@ export const injectionGuides: InjectionGuide[] = [
     latinName: "Ovitrelle",
     aliases: ["אוביטרל", "אוביטרל 250", "ovitrelle", "ovidrel"],
     activeIngredient: "כוריוגונדוטרופין אלפא (Choriogonadotropin alfa)",
-    form: "עט מוכן לשימוש או מזרק מוכן לשימוש — תמיסה להזרקה תת-עורית",
+    form: "עט מוכן לשימוש או מזרק מוכן לשימוש, תמיסה להזרקה תת-עורית",
     strengths: "250 mcg/0.5 mL",
     leaflet: {
-      label: "עלון לצרכן — אוביטרל 250 (משרד הבריאות)",
+      label: "עלון לצרכן: אוביטרל 250 (משרד הבריאות)",
       url: "https://mohpublic.z6.web.core.windows.net/IsraelDrugs/Rishum01_7_79557723.pdf",
       detail: "עברית; העלון מ-2021, הוראות העט מ-2023",
     },
@@ -217,9 +217,9 @@ export const injectionGuides: InjectionGuide[] = [
       },
     ],
     extraSources: [
-      { label: "Ovitrelle — מידע רשמי של EMA", url: "https://www.ema.europa.eu/en/medicines/human/EPAR/ovitrelle", detail: "אנגלית" },
+      { label: "Ovitrelle: מידע רשמי של EMA", url: "https://www.ema.europa.eu/en/medicines/human/EPAR/ovitrelle", detail: "אנגלית" },
     ],
-    missing: "לא נבדק אם הסרטון מציג עט או מזרק — ההוראות הקובעות הן העלון וההדרכה ביחידה.",
+    missing: "לא נבדק אם הסרטון מציג עט או מזרק, ההוראות הקובעות הן העלון וההדרכה ביחידה.",
   },
 ];
 

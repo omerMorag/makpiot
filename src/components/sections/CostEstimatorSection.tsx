@@ -46,7 +46,7 @@ export default function CostEstimatorSection() {
           </h1>
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink/70 sm:text-base">
             עני על כמה שאלות ונבנה לך הערכת עלות מסודרת. המחירים משתנים בין קופות, מרפאות
-            ופרוטוקולים — לכן התוצאה היא הערכה בלבד.
+            ופרוטוקולים, לכן התוצאה היא הערכה בלבד.
           </p>
         </div>
 

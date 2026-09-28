@@ -96,7 +96,7 @@ export default function SavedEstimatesList() {
               </div>
               <div className="flex items-center gap-3">
                 <span className="text-sm font-bold text-ink" dir="ltr">
-                  {formatILS(row.minTotal)} – {formatILS(row.maxTotal)}
+                  {formatILS(row.minTotal)} עד {formatILS(row.maxTotal)}
                 </span>
                 <button
                   type="button"

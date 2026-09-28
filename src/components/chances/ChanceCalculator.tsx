@@ -44,7 +44,7 @@ export default function ChanceCalculator() {
         בואי נסתכל על הנתונים
       </h2>
       <p className="mx-auto mt-2 max-w-md text-center text-sm leading-relaxed text-ink/60">
-        אם כבר הקפאת, אפשר להזין את הנתונים מסיכום השאיבה. אם עוד לא — אפשר לבדוק גיל ומספר ביציות שאת
+        אם כבר הקפאת, אפשר להזין את הנתונים מסיכום השאיבה. אם עוד לא, אפשר לבדוק גיל ומספר ביציות שאת
         שוקלת, ולראות מה המודל מעריך.
       </p>
 
@@ -57,7 +57,7 @@ export default function ChanceCalculator() {
           <ChanceSliderField
             id="chance-age"
             label="גיל בזמן ההקפאה"
-            helperText="אם עוד לא הקפאת — הגיל שבו את מתכננת להקפיא."
+            helperText="אם עוד לא הקפאת, הגיל שבו את מתכננת להקפיא."
             value={age}
             min={MIN_AGE}
             max={MAX_AGE}

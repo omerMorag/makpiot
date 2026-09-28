@@ -100,7 +100,7 @@ export async function POST(request: Request) {
         body: JSON.stringify({
           from: process.env.CONTACT_FROM_EMAIL || "מקפיאות <onboarding@resend.dev>",
           to: [to],
-          subject: `מקפיאות — ${topic}${name ? ` (${name})` : ""}`,
+          subject: `מקפיאות: ${topic}${name ? ` (${name})` : ""}`,
           html,
           ...(email ? { reply_to: email } : {}),
         }),

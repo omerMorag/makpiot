@@ -16,21 +16,21 @@ import type { HospitalPriceRow, SourceLink } from "./types";
  */
 
 export const comparisonGuideSource: SourceLink = {
-  label: "מחירון השוואה — הקונטיינר",
+  label: "מחירון השוואה: הקונטיינר",
   url: "https://www.container.org.il/כמה-עולה-הקפאת-ביציות/",
 };
 
 export const hospitalPrices: HospitalPriceRow[] = [
   {
-    name: "שמיר – אסף הרופא",
+    name: "שמיר (אסף הרופא)",
     region: "מרכז",
     cycle1Price: "6,500 ₪",
     cycle2Price: "12,000 ₪ לפי המחירון שפורסם",
     whatsIncluded: "שאיבה והקפאה; יש לבדוק אחסון ופגישת ייעוץ",
     verification: "verified",
     caveat:
-      "עמוד אחר של היחידה מציין שהמחזור הראשון עולה 6,500 ₪ וללא התחייבות לתשלום עבור מחזור שני — כלומר ייתכן שהמחזור השני כלול ולא בתוספת תשלום. מומלץ לאשר את הפרט הזה ישירות מול היחידה.",
-    source: { label: "שמיר — הקפאת ביציות", url: "https://vitrofertilization.shamir.org/oocyte-freezing/" },
+      "עמוד אחר של היחידה מציין שהמחזור הראשון עולה 6,500 ₪ וללא התחייבות לתשלום עבור מחזור שני, כלומר ייתכן שהמחזור השני כלול ולא בתוספת תשלום. מומלץ לאשר את הפרט הזה ישירות מול היחידה.",
+    source: { label: "שמיר: הקפאת ביציות", url: "https://vitrofertilization.shamir.org/oocyte-freezing/" },
   },
   {
     name: "שיבא תל השומר",
@@ -40,7 +40,7 @@ export const hospitalPrices: HospitalPriceRow[] = [
     whatsIncluded: "טיפול ומעקב, שאיבה, הקפאה ואחסון לחמש שנים",
     verification: "verified",
     fundArrangements: ["מכבי"],
-    source: { label: "שיבא — הקפאת ביציות מבחירה", url: "https://maternity.sheba.co.il/הקפאת-ביציות" },
+    source: { label: "שיבא: הקפאת ביציות מבחירה", url: "https://maternity.sheba.co.il/הקפאת-ביציות" },
   },
   {
     name: "וולפסון",
@@ -49,7 +49,7 @@ export const hospitalPrices: HospitalPriceRow[] = [
     cycle2Price: "14,000 ₪ אם אין חבילת הנחה",
     whatsIncluded: "שאיבה לשימור; יש לבדוק אחסון וייעוץ",
     verification: "verified",
-    source: { label: "וולפסון — שימור פוריות", url: "https://wolfsonhealth.com/הקפאת-ביציות/" },
+    source: { label: "וולפסון: שימור פוריות", url: "https://wolfsonhealth.com/הקפאת-ביציות/" },
   },
   {
     name: "הדסה",
@@ -67,12 +67,12 @@ export const hospitalPrices: HospitalPriceRow[] = [
     whatsIncluded: "גירוי, מעקב, שאיבה והקפאה; 5 שנות אחסון ראשונות",
     verification: "verified",
     source: {
-      label: "שערי צדק — שימור ביציות מבחירה",
+      label: "שערי צדק: שימור ביציות מבחירה",
       url: "https://www.szmc.org.il/departments/obstetrics-and-gynecology/ivf/madrich-ivf/shimur-mbhira/",
     },
   },
   {
-    name: "המרכז הרפואי לגליל – נהריה",
+    name: "המרכז הרפואי לגליל, נהריה",
     region: "צפון",
     cycle1Price: "6,700 ₪",
     cycle2Price: "5,300 ₪ לסבב שני; 12,000 ₪ יחד",
@@ -128,7 +128,7 @@ export const hospitalPrices: HospitalPriceRow[] = [
   {
     name: "קפלן",
     region: "מרכז",
-    cycle1Price: "מחיר בבירור (ב-2022: 6,214–6,338 ₪)",
+    cycle1Price: "מחיר בבירור (ב-2022: 6,214-6,338 ₪)",
     needsVerify: "מחירון נוכחי ומה כלול",
     verification: "needs-verification",
     fundArrangements: ["כללית"],
@@ -170,9 +170,9 @@ export const hospitalPrices: HospitalPriceRow[] = [
     whatsIncluded: "כל תהליך השימור (שאיבה והקפאה); לא כולל תרופות לגירוי שחלתי",
     verification: "verified",
     caveat:
-      "באתר היחידה מופיע גם הנתון 6,500 ₪ בתיאור מקוצר של העמוד, לצד 8,000 ₪ בפירוט המלא בהמשכו — מומלץ לאמת טלפונית (04-7744750) איזה מהם המחיר המעודכן.",
+      "באתר היחידה מופיע גם הנתון 6,500 ₪ בתיאור מקוצר של העמוד, לצד 8,000 ₪ בפירוט המלא בהמשכו, מומלץ לאמת טלפונית (04-7744750) איזה מהם המחיר המעודכן.",
     source: {
-      label: "הלל יפה — שימור הפוריות",
+      label: "הלל יפה: שימור הפוריות",
       url: "https://hymc.org.il/?CategoryID=2253&ArticleID=8603",
     },
   },
@@ -183,7 +183,7 @@ export const hospitalPrices: HospitalPriceRow[] = [
     needsVerify: "מחיר, מה כלול ואחסון",
     verification: "needs-verification",
     source: {
-      label: "הדסה הר הצופים — שימור פוריות",
+      label: "הדסה הר הצופים: שימור פוריות",
       url: "https://he.hadassah.org.il/women/fertility-conservation/",
     },
   },
@@ -195,7 +195,7 @@ export const hospitalPrices: HospitalPriceRow[] = [
     verification: "needs-verification",
     fundArrangements: ["כללית"],
     source: {
-      label: "מרכז רפואי העמק — מעבדת IVF",
+      label: "מרכז רפואי העמק: מעבדת IVF",
       url: "https://hospitals.clalit.co.il/emek/he/departmentsandclinics/women_birth_department/moadon_yoldot_hila/Pages/ivf_laborotory.aspx",
     },
   },
@@ -206,7 +206,7 @@ export const hospitalPrices: HospitalPriceRow[] = [
     needsVerify: "מחיר, מה כלול ופרטי ההליך בפועל",
     verification: "needs-verification",
     source: {
-      label: "משרד הבריאות — רשימת יחידות IVF מוסמכות",
+      label: "משרד הבריאות: רשימת יחידות IVF מוסמכות",
       url: "https://www.gov.il/he/pages/ivf-inst-cryopreservation",
     },
   },
@@ -217,7 +217,7 @@ export const hospitalPrices: HospitalPriceRow[] = [
     needsVerify: "מחיר ומה כלול",
     verification: "needs-verification",
     source: {
-      label: "אסותא אשדוד — היחידה לפריון ולהפריה חוץ גופית",
+      label: "אסותא אשדוד: היחידה לפריון ולהפריה חוץ גופית",
       url: "https://www.assutaashdod.co.il/?catid=%7B6b314f6f-f644-4645-9172-848e7b5115dc%7D",
     },
   },

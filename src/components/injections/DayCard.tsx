@@ -200,7 +200,7 @@ function MedLine({
           type="button"
           onClick={() => onToggle(!med.done)}
           aria-pressed={med.done}
-          aria-label={`${med.done ? "ביטול סימון" : "סימון הזרקתי"} — ${med.name}`}
+          aria-label={`${med.done ? "ביטול סימון" : "סימון הזרקתי"}: ${med.name}`}
           className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 transition-colors ${
             med.done ? "border-teal-600 bg-teal-600 text-ink" : "border-mist-300 bg-white text-transparent hover:border-teal-400"
           }`}
@@ -384,7 +384,7 @@ function MedsEditor({
       </div>
       {rows.some((r) => r.days > 1) && (
         <p className="text-xs text-ink/55" data-testid="days-hint">
-          נוסיף את הזריקה גם לימים הבאים ביומן, עם אותו מינון. אם המינון ישתנה — אפשר לעדכן כל יום בנפרד.
+          נוסיף את הזריקה גם לימים הבאים ביומן, עם אותו מינון. אם המינון ישתנה, אפשר לעדכן כל יום בנפרד.
         </p>
       )}
       <div className="flex flex-wrap gap-2 pt-1">
@@ -485,7 +485,7 @@ function MonitoringEditor({
             data-testid={`mon-${p.id}`}
           />
           <select
-            aria-label={`יחידה — ${p.name}`}
+            aria-label={`יחידה: ${p.name}`}
             value={values[p.id].unit}
             onChange={(e) => setValues((v) => ({ ...v, [p.id]: { ...v[p.id], unit: e.target.value } }))}
             className="rounded-xl border border-mist-200 bg-white px-2 py-2.5 text-sm text-ink/80"

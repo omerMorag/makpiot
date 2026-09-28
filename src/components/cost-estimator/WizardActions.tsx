@@ -70,7 +70,7 @@ function SaveEstimateButton({ estimator }: { estimator: CostEstimator }) {
       : saveStatus === "saved"
         ? "נשמר!"
         : saveStatus === "error"
-          ? "שמירה נכשלה — נסי שוב"
+          ? "שמירה נכשלה. נסי שוב"
           : "שמרי את ההערכה";
 
   return (

@@ -72,7 +72,7 @@ function fromCostItem(key: string, label: string, item: CostItemRow | undefined,
       max: null,
       source: "unpriced",
       billing,
-      note: "המחיר טרם עודכן — לא נכלל בסכום",
+      note: "המחיר טרם עודכן, לא נכלל בסכום",
     };
   }
   return { key, label, min: item.minPrice, max: item.maxPrice, source: "estimated", billing };
@@ -102,7 +102,7 @@ export function computeEstimate(answers: WizardAnswers, costItems: CostItemRow[]
     lineItems.push(manualLineItem("clinic", "עלות מרפאה/בית חולים", answers.clinicManualAmount, "per_cycle"));
   } else if (answers.clinicMode === "site_choice" && answers.clinicChoiceName) {
     const item = findCostItem(costItems, { category: "clinic_cycle", treatmentRoute, clinic: answers.clinicChoiceName });
-    lineItems.push(fromCostItem("clinic", `עלות מרפאה/בית חולים — ${answers.clinicChoiceName}`, item, "per_cycle"));
+    lineItems.push(fromCostItem("clinic", `עלות מרפאה/בית חולים: ${answers.clinicChoiceName}`, item, "per_cycle"));
   }
   // clinicMode === "not_chosen" → אין שורה בכלל (עדיין לא רלוונטי לחישוב)
 

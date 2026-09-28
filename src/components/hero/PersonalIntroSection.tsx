@@ -70,7 +70,7 @@ export default function PersonalIntroSection({ reducedMotion, onCtaClick }: Pers
 
         <div className="flex flex-col gap-4 text-base leading-relaxed text-ink/75 sm:text-lg">
           <p>
-            בין אם את כאן כי את חושבת על העתיד שלך, ובין אם הגעת בעקבות סיבה רפואית — הדרך להקפאת
+            בין אם את כאן כי את חושבת על העתיד שלך, ובין אם הגעת בעקבות סיבה רפואית, הדרך להקפאת
             ביציות יכולה להעלות הרבה שאלות. גם אני מכירה את התחושה הזאת: מאיפה מתחילים, מה צריך
             לבדוק, ואיך יודעים מה השלב הבא?
           </p>

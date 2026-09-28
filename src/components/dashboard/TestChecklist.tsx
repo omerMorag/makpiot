@@ -207,7 +207,7 @@ export default function TestChecklist({
                   אותו, לפני מיני-הצ'קליסט וטבלת התאריך/הנחיות שמתחתיו
                   (שניהם גלויים תמיד ולא חלק מהפתיחה/סגירה). קודם זה היה
                   הפריט האחרון בכרטיס, כך שהטקסט "נפתח" למטה, מתחת לכל תוכן
-                  הכרטיס — לא מתחת לכפתור עצמו כמו שמצופה מ-accordion. */}
+                  הכרטיס, לא מתחת לכפתור עצמו כמו שמצופה מ-accordion. */}
               <div
                 id={panelId}
                 role="region"
@@ -287,7 +287,7 @@ export default function TestChecklist({
                               type="date"
                               value={subDateValue}
                               onChange={(e) => onUpdateDate(subKey, e.target.value)}
-                              aria-label={`תאריך ביצוע נפרד — ${item.label}`}
+                              aria-label={`תאריך ביצוע נפרד: ${item.label}`}
                               className="rounded-lg border border-mist-200 bg-white px-2 py-1 text-[11px] text-ink/80 transition-colors focus:border-teal-400 sm:text-xs"
                             />
                             <button
@@ -300,7 +300,7 @@ export default function TestChecklist({
                                   return next;
                                 });
                               }}
-                              aria-label={`הסרת תאריך נפרד — ${item.label}`}
+                              aria-label={`הסרת תאריך נפרד: ${item.label}`}
                               className="text-ink/35 transition-colors hover:text-ink/60"
                             >
                               <X className="h-3.5 w-3.5" strokeWidth={2.25} />
@@ -327,7 +327,7 @@ export default function TestChecklist({
                     type="date"
                     value={groupDateValue}
                     onChange={(e) => onUpdateDate(groupDateKey, e.target.value)}
-                    aria-label={`תאריך ביצוע — ${test.title}`}
+                    aria-label={`תאריך ביצוע: ${test.title}`}
                     className="w-full max-w-[220px] rounded-lg border border-mist-200 bg-white px-2 py-1.5 text-xs text-ink/80 transition-colors focus:border-teal-400 sm:text-sm"
                   />
                   {hasMultipleSubItems && (

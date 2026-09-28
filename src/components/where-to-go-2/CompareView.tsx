@@ -65,7 +65,7 @@ function rows(s: FlowState): Row[] {
             {fp && fr && (
               <div>
                 <span className="font-semibold text-ink">{routeName(fr)}: </span>
-                {fp.amount && (fp.kind === "verified" || fp.kind === "conditional") ? `${fp.amount} ${fr.priceBasis ?? ""} — ${fp.label}` : fp.label}
+                {fp.amount && (fp.kind === "verified" || fp.kind === "conditional") ? `${fp.amount} ${fr.priceBasis ?? ""}, ${fp.label}` : fp.label}
                 {fr.verificationStatus !== "verified" && <span className="block text-xs text-ink/55">ההסדר ביחידה דורש אישור מול הקופה</span>}
                 <Src route={fr} />
               </div>
@@ -105,7 +105,7 @@ function rows(s: FlowState): Row[] {
       label: "מידע חסר",
       render: (u) => {
         const list = toCheck(u, mainRoute(u, s), s);
-        return list.length ? list.join(" · ") : "—";
+        return list.length ? list.join(" · ") : "-";
       },
     },
   ];
@@ -136,7 +136,7 @@ const CompareView = forwardRef<HTMLHeadingElement, CompareViewProps>(function Co
             השוואת המקומות
           </h2>
           <p className="mt-0.5 text-xs leading-relaxed text-ink/55">
-            ההשוואה לא מדרגת מקומות — מחיר נמוך יותר לא אומר שהמקום מתאים לך יותר. ״לא אומת״ = לא מצאנו את זה במקור רשמי.
+            ההשוואה לא מדרגת מקומות, מחיר נמוך יותר לא אומר שהמקום מתאים לך יותר. ״לא אומת״ = לא מצאנו את זה במקור רשמי.
           </p>
         </div>
         <button type="button" onClick={onClose} className="shrink-0 rounded-full px-3 py-1.5 text-xs font-semibold text-ink/55 hover:bg-mist-100">

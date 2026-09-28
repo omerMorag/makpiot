@@ -51,7 +51,7 @@ export default function SummaryCards({ progress, onOpenNextStep }: SummaryCardsP
               <PartyPopper className="h-5 w-5" strokeWidth={2} />
             </span>
             <p className="text-sm font-semibold text-ink">
-              כל השלבים סומנו כהושלמו — כל הכבוד!
+              כל השלבים סומנו כהושלמו. כל הכבוד!
             </p>
           </div>
         ) : (

@@ -52,9 +52,9 @@ export default function MyChancesSection() {
 
       {/* 4. טבלת "אותו מספר ביציות – גיל שונה" */}
       <section className="mt-10 sm:mt-14">
-        <SectionHeading icon={BarChart3} title="אותו מספר ביציות – גיל שונה" />
+        <SectionHeading icon={BarChart3} title="אותו מספר ביציות, גיל שונה" />
         <p className="mb-4 text-sm leading-relaxed text-ink/70 sm:text-[15px]">
-          20 ביציות בשלות בשלושה גילים — אלה שלוש הדוגמאות שמופיעות במאמר של Goldman עצמו, והן מראות
+          20 ביציות בשלות בשלושה גילים: אלה שלוש הדוגמאות שמופיעות במאמר של Goldman עצמו, והן מראות
           עד כמה הגיל בזמן ההקפאה משנה את הערכת המודל.
         </p>
         <IllustrativeAgeTable />
@@ -100,7 +100,7 @@ export default function MyChancesSection() {
           </p>
           <p className="mt-2.5 text-sm leading-relaxed text-ink/70 sm:text-[15px]">
             שיעורי ההצלחה עשויים להשתנות בין נשים, מרפאות, בתי חולים ומעבדות. המקורות למטה
-            מקובצים לפי התפקיד שלהם — כדי שיהיה ברור מה בדיוק כל מחקר תורם, ומה הוא לא.
+            מקובצים לפי התפקיד שלהם, כדי שיהיה ברור מה בדיוק כל מחקר תורם, ומה הוא לא.
           </p>
 
           <div className="mt-5 flex flex-col gap-5">

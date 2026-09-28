@@ -306,7 +306,7 @@ function SyncNote({ api }: { api: ReturnType<typeof useInjectionJournal> }) {
   }
   const text =
     api.syncState === "offline"
-      ? "אין כרגע חיבור לשמירה בחשבון — השינויים נשמרים בדפדפן ויישמרו בחשבון כשיחזור החיבור."
+      ? "אין כרגע חיבור לשמירה בחשבון, השינויים נשמרים בדפדפן ויישמרו בחשבון כשיחזור החיבור."
       : api.syncState === "saving" || api.syncState === "loading"
         ? "שומרת בחשבון…"
         : "היומן נשמר בחשבון שלך.";

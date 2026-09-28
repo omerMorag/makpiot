@@ -252,7 +252,7 @@ export default function AppShell() {
 
       {/* Hero + מקטע ההיכרות — תוכן זרימה רגיל, full-bleed מחוץ למרווח
           הסיידבר (הוא ממילא מוסתר כל עוד showHero פעיל). מוצגים רק באזור
-          "roadmap" — כניסה ישירה ל-#tests/#where-to-go/#guides וכו' מדלגת
+          "roadmap", כניסה ישירה ל-#tests/#where-to-go/#guides וכו' מדלגת
           עליהם לגמרי (showHero כבר false במקרה הזה, ר' useHeroScrollTransition). */}
       {section === "roadmap" && showHero && (
         <>

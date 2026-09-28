@@ -57,7 +57,7 @@ export default function HeroIntro({ reducedMotion, onCtaClick }: HeroIntroProps)
 
   return (
     <section
-      aria-label="מקפיאות — מסך פתיחה"
+      aria-label="מקפיאות: מסך פתיחה"
       className="h-hero-safe relative flex items-center justify-center px-4 sm:px-6"
     >
       <div
@@ -103,7 +103,7 @@ export default function HeroIntro({ reducedMotion, onCtaClick }: HeroIntroProps)
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/brand/hen-full.png"
-          alt="מקפיאות — תרנגולת המותג"
+          alt="מקפיאות: תרנגולת המותג"
           className="h-auto w-36 max-w-full shrink-0 object-contain sm:w-44 lg:w-[280px]"
           style={{ filter: "drop-shadow(0 16px 28px rgba(36, 22, 25, 0.14))" }}
         />
@@ -112,7 +112,7 @@ export default function HeroIntro({ reducedMotion, onCtaClick }: HeroIntroProps)
       {/* רמז גלילה עדין — "יש עוד למטה". קבוע בתחתית המסך (לא חלק מהעמודה
           הממורכזת מעליו), כדי שיישאר גלוי גם בדסקטופ (שם הגובה כבר מקוצר
           קצת, ר' h-hero-safe) וגם במובייל (שם זה הרמז החזותי היחיד לכך
-          שאפשר להמשיך לגלול — הגובה שם נשאר מלא ולא נדחס). aria-hidden כי
+          שאפשר להמשיך לגלול, הגובה שם נשאר מלא ולא נדחס). aria-hidden כי
           זה רמז חזותי גרידא, לא תוכן/פעולה. */}
       <div
         className="pointer-events-none absolute inset-x-0 bottom-4 flex flex-col items-center gap-1 text-ink/40 transition-opacity duration-300 sm:bottom-5 lg:bottom-7"

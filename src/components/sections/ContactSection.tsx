@@ -68,7 +68,7 @@ export default function ContactSection() {
         <form onSubmit={submit} className="mt-6 rounded-3xl border-2 border-mist-200 bg-white p-5 shadow-card sm:p-6" data-testid="contact-form">
           <p className="flex items-start gap-2 rounded-xl bg-warm-100/70 px-3.5 py-2.5 text-sm leading-relaxed text-ink/75">
             <ShieldAlert className="mt-0.5 h-4 w-4 shrink-0 text-ink/60" strokeWidth={2.25} aria-hidden="true" />
-            בבקשה לא לכתוב כאן פרטים רפואיים אישיים. לשאלות על הטיפול שלך — פני לצוות המטפל.
+            בבקשה לא לכתוב כאן פרטים רפואיים אישיים. לשאלות על הטיפול שלך, פני לצוות המטפל.
           </p>
 
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
@@ -143,7 +143,7 @@ export default function ContactSection() {
           >
             {status === "sending" ? "שולחת…" : "שליחה"}
           </button>
-          <p className="mt-2 text-xs text-ink/45">ההודעה מגיעה רק אליי — אף אחד אחר לא רואה אותה.</p>
+          <p className="mt-2 text-xs text-ink/45">ההודעה מגיעה רק אליי, אף אחד אחר לא רואה אותה.</p>
         </form>
       )}
     </div>

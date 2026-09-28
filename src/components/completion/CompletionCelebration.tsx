@@ -28,7 +28,7 @@ const SUMMER_HEN_SRC = "/images/hens/hen-completion-summer.png";
  */
 const TITLE = "סיימת את המסלול! 🎉";
 /** טקסט מדויק כפי שהתבקש */
-const SUBTITLE = "הסבב מאחורייך. את — בחזרה לשמש.";
+const SUBTITLE = "הסבב מאחורייך, ואת בחזרה לשמש.";
 const BODY = "כל שלב שסימנת כאן הוא שלב אמיתי שעברת. קחי רגע להרגיש את זה.";
 const BACK_TO_TOP_LABEL = "חזרה לראש המסלול ↑";
 /** טקסט מדויק כפי שהתבקש */
@@ -63,7 +63,7 @@ export default function CompletionCelebration() {
       className="no-print relative mt-6 flex min-h-screen-safe flex-col items-center justify-center gap-10 overflow-hidden rounded-[2.5rem] px-4 py-16 sm:mt-8 sm:px-8"
     >
       {/* רקע: שכבה קרירה (קרם->מנטה) קבועה, ומעליה שכבה חמה (אפרסק->חמאה)
-          שדוהה פנימה כשהשמש "זורחת" — crossfade אמין בין שתי שכבות מוכנות
+          שדוהה פנימה כשהשמש "זורחת", crossfade אמין בין שתי שכבות מוכנות
           מראש, ולא אנימציה של gradient עצמו (שלא תמיד עובדת חלק בין דפדפנים) */}
       <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-mist-50 to-warm-100" />
       <div
@@ -213,7 +213,7 @@ export default function CompletionCelebration() {
             {/* הבזק חם ("revealGlow") בדיוק ברגע ההחלפה — עוזר לרגע להרגיש
                 כמו "קרה משהו" גם כשתמונת הקיץ עוד לא הועלתה (fallback זהה
                 לחורפית). ⚠️ transform באנימציה עצמה מכיל translate(-50%,-50%)
-                יחד עם ה-scale (לא רק scale) — ראו הערה ב-globals.css למה זה
+                יחד עם ה-scale (לא רק scale), ראו הערה ב-globals.css למה זה
                 קריטי: אנימציית CSS דורסת את כל ה-transform, כולל מיקום
                 שהוגדר ע"י מחלקת Tailwind, ולא רק את החלק שה-keyframe "מתכוון"
                 לשנות. */}
@@ -230,7 +230,7 @@ export default function CompletionCelebration() {
 
             {/* הענן — מבליח פעם אחת בדיוק סביב רגע ההחלפה, "מכסה" אותה.
                 כנ"ל: ה-translate נמצא בתוך ה-keyframe עצמו (cloudPulse
-                ב-globals.css), לא כמחלקת Tailwind נפרדת — זה בדיוק התיקון
+                ב-globals.css), לא כמחלקת Tailwind נפרדת, זה בדיוק התיקון
                 לבאג שבו הענן "קפץ" הצידה במקום להישאר ממורכז על התרנגולת
                 לאורך כל האנימציה. */}
             {play && (
@@ -278,7 +278,7 @@ export default function CompletionCelebration() {
 
             {/* קונפטי — נופל אחרי זריחת השמש. כל חלקיק שני מסתובב בכיוון הפוך
                 (confettiFall/confettiFallReverse לסירוגין, לפי אינדקס) כדי
-                שהנפילה לא תיראה כמו עותק מוכפל של אותה תנועה — ⚠️ ה-rotateDeg
+                שהנפילה לא תיראה כמו עותק מוכפל של אותה תנועה, ⚠️ ה-rotateDeg
                 שבקונפיגורציה (celebrationParticles.ts) לא משמש כאן כ-transform
                 נפרד, כי היה נדרס לגמרי ע"י ה-transform של ה-keyframe עצמו
                 (אותו באג שתואר ב-cloudPulse למעלה). */}

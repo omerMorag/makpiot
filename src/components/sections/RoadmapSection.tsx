@@ -197,7 +197,7 @@ export default function RoadmapSection({ progress, openStepId, onOpenStep }: Roa
         </div>
         <div className="no-print flex flex-wrap items-center gap-2">
           {/* progress הכללי של המסלול מבוסס על סך המשימות שסומנו בכל השלבים
-              (Roadmap 2.0), לא רק על מספר השלבים שהושלמו במלואם — כך
+              (Roadmap 2.0), לא רק על מספר השלבים שהושלמו במלואם, כך
               "3 מתוך 6 הושלמו" בתוך כל שלב מצטבר לתמונה אמיתית של כמה
               עשית מתוך המסלול כולו, גם כשאף שלב עדיין לא סומן כהושלם. */}
           <span className="inline-flex items-center rounded-full bg-teal-50 px-3.5 py-1.5 text-sm font-bold text-teal-700 ring-1 ring-inset ring-teal-100">
@@ -235,7 +235,7 @@ export default function RoadmapSection({ progress, openStepId, onOpenStep }: Roa
           (לא רק הסתרה ב-CSS) בכוונה: אם משתמשת מבטלת סימון שלב אחרי
           שסיימה, המסך והרמז נעלמים; אם היא משלימה שוב, ה-unmount/mount
           המלא מאפס גם את מצב האנימציה הפנימי (useCelebrationTrigger),
-          כך שהרצף החגיגי יתנגן מחדש מההתחלה — נשקל כרצוי, לא כתקלה. */}
+          כך שהרצף החגיגי יתנגן מחדש מההתחלה, נשקל כרצוי, לא כתקלה. */}
       {isJourneyComplete && <ScrollToCompletionHint />}
       {isJourneyComplete && <CompletionCelebration />}
     </div>

@@ -105,7 +105,7 @@ export default function WhereToDoTool({ progress }: { progress: JourneyProgress 
           ) : (
             <div className="mt-4 rounded-2xl border-2 border-dashed border-mist-200 p-5 text-sm leading-relaxed text-ink/65" data-testid="no-results">
               {state.path === "fund" && state.fund
-                ? `לא מצאנו ${regionText} מקום שמופיע במקור רשמי בהסדר של ${state.fund}. זה לא אומר שאין — כדאי לשאול את הקופה.`
+                ? `לא מצאנו ${regionText} מקום שמופיע במקור רשמי בהסדר של ${state.fund}. זה לא אומר שאין, כדאי לשאול את הקופה.`
                 : `לא מצאנו ${regionText} מקומות שמתאימים למסלול הזה.`}{" "}
               {state.region !== "all" && (
                 <button

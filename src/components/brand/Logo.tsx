@@ -27,7 +27,7 @@ const DEFAULT_MARK_SIZE: Record<LogoVariant, number> = {
 
 const BRAND_NAME = "מקפיאות";
 const TAGLINE = "הדרך שלך להקפאת ביציות";
-const HOME_ARIA_LABEL = "מקפיאות – מעבר לעמוד הראשי";
+const HOME_ARIA_LABEL = "מקפיאות: מעבר לעמוד הראשי";
 
 /**
  * רכיב לוגו יחיד לכל האתר, עם שלוש וריאציות שכולן נבנות מאותו LogoMark

@@ -64,10 +64,10 @@ export default function BeforeChoosingCard() {
               לפני שמתחייבות למסלול בתשלום, כדאי להתייעץ עם רופא/ת פריון ולברר מול הקופה.
             </p>
             <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1">
-              <ExtLink href={MOH_SOURCE}>משרד הבריאות — שמירת ביציות</ExtLink>
-              <ExtLink href="https://www.maccabi4u.co.il/eligibilites/1834/">מכבי — שימור מסיבות רפואיות</ExtLink>
+              <ExtLink href={MOH_SOURCE}>משרד הבריאות: שמירת ביציות</ExtLink>
+              <ExtLink href="https://www.maccabi4u.co.il/eligibilites/1834/">מכבי: שימור מסיבות רפואיות</ExtLink>
               <ExtLink href="https://www.clalit.co.il/he/myrights/fertility/Pages/fertility-preservation.aspx">
-                כללית — זכויות שימור פריון
+                כללית: זכויות שימור פריון
               </ExtLink>
             </div>
           </Part>
@@ -75,16 +75,16 @@ export default function BeforeChoosingCard() {
           <Part title="אם מדובר בהקפאה מבחירה, מה האפשרויות?">
             <ol className="list-decimal space-y-1.5 pr-4">
               <li>
-                <span className="font-semibold text-ink">דרך הביטוח המשלים של הקופה</span> — משלמים השתתפות
+                <span className="font-semibold text-ink">דרך הביטוח המשלים של הקופה</span>: משלמים השתתפות
                 עצמית, שתלויה בקופה, ברובד הביטוח, בגיל, בוותק וביחידות שבהסדר. את התרופות והעלויות הנוספות
                 צריך לבדוק בנפרד.
               </li>
               <li>
-                <span className="font-semibold text-ink">בתשלום עצמי ביחידה ציבורית</span> — משלמים לפי תעריף
+                <span className="font-semibold text-ink">בתשלום עצמי ביחידה ציבורית</span>: משלמים לפי תעריף
                 היחידה. כדאי לברר מה בדיוק כלול במחיר.
               </li>
               <li>
-                <span className="font-semibold text-ink">בתשלום עצמי ביחידה פרטית</span> — אפשר לברר גם ליווי
+                <span className="font-semibold text-ink">בתשלום עצמי ביחידה פרטית</span>: אפשר לברר גם ליווי
                 של רופא/ה פרטי/ת. חשוב להפריד בין התשלום לרופא/ה, התשלום ליחידה, התרופות והאחסון, ולוודא מי
                 מבצע/ת בפועל את השאיבה.
               </li>
@@ -98,7 +98,7 @@ export default function BeforeChoosingCard() {
           <Part title="כמה ביציות וסבבים אפשר לעשות?">
             <ul className="space-y-1.5">
               <li>
-                <Tag>מגבלה ארצית</Tag> בהקפאה מבחירה (גיל 30–41): עד 6 שאיבות, או עד 25 ביציות לפני גיל 36 ועד
+                <Tag>מגבלה ארצית</Tag> בהקפאה מבחירה (גיל 30-41): עד 6 שאיבות, או עד 25 ביציות לפני גיל 36 ועד
                 35 ביציות מגיל 36 ועד לפני 41, לפי המוקדם. אם כבר בשאיבה הראשונה הגיעו למספר המרבי, אפשר לאשר
                 שאיבה אחת נוספת. הנוסח המלא והחריגים מופיעים אצל{" "}
                 <ExtLink href={MOH_SOURCE} inline>
