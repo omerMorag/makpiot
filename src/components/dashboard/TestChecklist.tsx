@@ -138,6 +138,12 @@ export default function TestChecklist({
       <p className="mb-4 text-sm leading-relaxed text-ink/60">
         סמני מה כבר עשית, ואז השווי לרשימה הרשמית של היחידה שבחרת.
       </p>
+      <p className="-mt-2 mb-4 flex items-center gap-1.5 text-xs font-semibold text-teal-700 sm:text-sm" data-testid="separate-date-legend">
+        להוספת תאריך נפרד לבדיקה, לחצי על<span className="sr-only"> הפלוס</span>
+        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-teal-50 ring-1 ring-inset ring-teal-200" aria-hidden="true">
+          <Plus className="h-3 w-3" strokeWidth={2.75} />
+        </span>
+      </p>
 
       <ul className="flex flex-col gap-2.5 sm:gap-3">
         {testItems.map((test) => {
@@ -253,10 +259,12 @@ export default function TestChecklist({
                             <button
                               type="button"
                               onClick={() => toggleDateExpanded(subKey)}
-                              className="inline-flex items-center gap-1 text-[11px] font-medium text-teal-700/80 transition-colors hover:text-teal-800 sm:text-xs"
+                              aria-label={`הוספת תאריך נפרד: ${item.label}`}
+                              title="הוספת תאריך נפרד"
+                              className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-teal-50 text-teal-700 ring-1 ring-inset ring-teal-200 transition-colors hover:bg-teal-100 hover:text-teal-800"
+                              data-testid="separate-date-plus"
                             >
-                              <Plus className="h-3 w-3" strokeWidth={2.5} />
-                              תאריך נפרד
+                              <Plus className="h-3.5 w-3.5" strokeWidth={2.75} aria-hidden="true" />
                             </button>
                           )}
                         </div>
@@ -330,11 +338,6 @@ export default function TestChecklist({
                     aria-label={`תאריך ביצוע: ${test.title}`}
                     className="w-full max-w-[220px] rounded-lg border border-mist-200 bg-white px-2 py-1.5 text-xs text-ink/80 transition-colors focus:border-teal-400 sm:text-sm"
                   />
-                  {hasMultipleSubItems && (
-                    <p className="mt-1 text-[11px] leading-snug text-ink/45 sm:text-xs">
-                      בוצעו חלק מהבדיקות ביום אחר? אפשר לסמן &quot;תאריך נפרד&quot; ליד כל רכיב למעלה.
-                    </p>
-                  )}
                 </div>
 
                 {test.prepNote && (
