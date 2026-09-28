@@ -48,8 +48,10 @@ export const testItems: TestItem[] = [
       // AMH לא תלוי במחזור — ASRM: "can be measured at any point in the menstrual cycle".
       // optional: true — לא כל יחידה דורשת AMH (ר' secondaryNote), ולכן היא
       // לא נדרשת כדי ש"פרופיל הורמונלי" ייחשב הושלם (ר' useJourneyProgress.ts).
-      // מחירי priceInfo אומתו מול המקורות עצמם ב-2026-09-26 (ר' checkedDate
-      // בכל שורה) — אסותא רמת החייל לא אומת בפועל ומסומן בהתאם, לא מוצג כמחיר עדכני.
+      // מחירי priceInfo אומתו מול המקורות הרשמיים ב-2026-09-29 (ר' checkedDate).
+      // נבדקו גם שיבא, בילינסון, מאיר, שמיר, קפלן, לניאדו, מעייני הישועה, הרצליה מדיקל,
+      // שערי צדק, רמב"ם, בני ציון, כרמל, סורוקה ועוד: לא פורסם מחיר, ולכן לא נוספו.
+      // שורות בלי מחיר מפורסם מסומנות needs-verification ולא מציגות מספר.
       {
         label: "AMH",
         note: "אפשר לבצע בכל יום במחזור",
@@ -66,26 +68,52 @@ export const testItems: TestItem[] = [
               price: "300 ₪",
               sourceLabel: "עמוד היחידה",
               sourceUrl: "https://www.nashim.net/?CategoryID=1202",
-              checkedDate: "2026-09-26",
+              checkedDate: "2026-09-29",
               verification: "verified",
-              note: "לפי העמוד, הבדיקה ללא עלות למטופלות היחידה.",
+              note: "לפי העמוד, הבדיקה ללא עלות למטופלות יחידת הפוריות של וולפסון.",
             },
             {
-              name: "אסותא רמת החייל, תל אביב",
-              sourceLabel: "עמוד המעבדה",
-              sourceUrl:
-                "https://www.assuta.co.il/hospitals/about_assuta_ramathahayal/clinics_ramathahayal/laboratory/",
-              checkedDate: "2026-09-26",
-              verification: "needs-verification",
-              note: "לא אותר מחיר מפורש בעמוד הנוכחי, כדאי לברר טלפונית מול המעבדה לפני קביעת תור.",
+              name: "איכילוב, תל אביב",
+              price: "400 ₪",
+              sourceLabel: "מחירון המעבדה האנדוקרינית",
+              sourceUrl: "https://www.tasmc.org.il/unit-index-page/lab/endocrinology-lab/prices-endocrine-lab/",
+              checkedDate: "2026-09-29",
+              verification: "verified",
+              note: "מחירון לנבדקות שמשלמות באופן פרטי, מעודכן ל-1.7.2026.",
             },
             {
               name: "הדסה הר הצופים, ירושלים",
               price: "448 ₪",
               sourceLabel: "עמוד הבדיקה",
               sourceUrl: "https://he.hadassah.org.il/women/amh-test/",
-              checkedDate: "2026-09-26",
+              checkedDate: "2026-09-29",
               verification: "verified",
+              note: "לפי העמוד אפשר להגיע גם בלי הפניה. כדאי לבדוק בעמוד את ימי ושעות הקבלה.",
+            },
+            {
+              name: "מרכז רפואי העמק, עפולה",
+              sourceLabel: "עמוד הבדיקה",
+              sourceUrl: "https://hospitals.clalit.co.il/emek/he/yoldot_vetinokot/lifney_haherayon/Pages/AMH.aspx",
+              checkedDate: "2026-09-29",
+              verification: "needs-verification",
+              note: "לפי העמוד, הבדיקה אפשרית באופן פרטי בלבד, גם למי שאינה חברת כללית, בתיאום מראש. המחיר לא מפורסם ונמסר בטלפון.",
+            },
+            {
+              name: "הלל יפה, חדרה",
+              sourceLabel: "עמוד היחידה",
+              sourceUrl: "https://hymc.org.il/?ArticleID=3231&CategoryID=1218",
+              checkedDate: "2026-09-29",
+              verification: "needs-verification",
+              note: "לפי העמוד, הבדיקה מבוצעת ביחידת ה-IVF במחיר עלות. הסכום לא מפורסם, כדאי לברר ביחידה.",
+            },
+            {
+              name: "אסותא רמת החייל, תל אביב",
+              sourceLabel: "עמוד המעבדה",
+              sourceUrl:
+                "https://www.assuta.co.il/hospitals/about_assuta_ramathahayal/clinics_ramathahayal/laboratory/",
+              checkedDate: "2026-09-29",
+              verification: "needs-verification",
+              note: "לא אותר מחיר מפורש בעמוד, כדאי לברר טלפונית מול המעבדה לפני קביעת תור.",
             },
           ],
           fundLinks: [

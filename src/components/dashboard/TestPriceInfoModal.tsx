@@ -86,7 +86,7 @@ export default function TestPriceInfoModal({ info, onClose }: TestPriceInfoModal
                   {row.verification === "verified" && row.price ? (
                     <span className="text-sm font-bold text-teal-700">{row.price}</span>
                   ) : (
-                    <span className="text-xs font-semibold text-ink/45">מחיר לא אומת</span>
+                    <span className="text-xs font-semibold text-ink/45">מחיר לא פורסם</span>
                   )}
                 </div>
                 <div className="mt-1.5 flex flex-wrap items-center gap-1.5 text-[11px] text-ink/55 sm:text-xs">
