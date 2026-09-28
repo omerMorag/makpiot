@@ -2,12 +2,11 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Zap } from "lucide-react";
-import type { JourneyProgress } from "@/lib/useJourneyProgress";
+import { missingStepTaskKeys, type JourneyProgress } from "@/lib/useJourneyProgress";
 import StepList from "@/components/dashboard/StepList";
 import NextActionCard from "@/components/dashboard/NextActionCard";
 import ResetButton from "@/components/dashboard/ResetButton";
-import CompletionCelebration from "@/components/completion/CompletionCelebration";
-import ScrollToCompletionHint from "@/components/completion/ScrollToCompletionHint";
+import JourneyFinale from "@/components/completion/JourneyFinale";
 
 /** כמה זמן ההדגשה העדינה של המשימה נשארת דלוקה אחרי לחיצה על CTA "להמשך"
  *  ב-NextActionCard, לפני שהיא נעלמת מעצמה. */
@@ -171,6 +170,26 @@ export default function RoadmapSection({ progress, openStepId, onOpenStep }: Roa
   // כינוי שם בלבד לצורך קריאות, בלי state/מנגנון התקדמות חדש.
   const isJourneyComplete = allStepsCompleted;
 
+  // רגע הסיום מתנגן רק בעקבות סימון ידני של המשימה האחרונה שחסרה במסלול,
+  // לא בטעינת העמוד ולא בסנכרון. בביקור חוזר מוצגת תמונת הסיום בלבד.
+  // finaleRun משמש גם כ-key, כך שסימון מחדש אחרי ביטול מתחיל רצף חדש.
+  const [finaleRun, setFinaleRun] = useState(0);
+  const { completedStepTasks, toggleStepTask } = progress;
+  const handleToggleTask = useCallback(
+    (stepId: number, taskIndex: number) => {
+      const key = `${stepId}:${taskIndex}`;
+      if (!completedStepTasks.has(key)) {
+        const missing = missingStepTaskKeys(completedStepTasks);
+        if (missing.length === 1 && missing[0] === key) setFinaleRun((n) => n + 1);
+      }
+      toggleStepTask(stepId, taskIndex);
+    },
+    [completedStepTasks, toggleStepTask]
+  );
+  useEffect(() => {
+    if (!isJourneyComplete) setFinaleRun(0);
+  }, [isJourneyComplete]);
+
   return (
     <div className="print-stack">
       {/* הכרזה נגישה — אלמנט קבוע תמיד ב-DOM (לא מותנה-קיום), רק תוכנו
@@ -224,7 +243,7 @@ export default function RoadmapSection({ progress, openStepId, onOpenStep }: Roa
         <StepList
           openStepId={openStepId}
           completedStepTasks={progress.completedStepTasks}
-          onToggleTask={progress.toggleStepTask}
+          onToggleTask={handleToggleTask}
           onToggleExpand={toggleExpand}
           setRowRef={setRowRef}
           highlightedTaskKey={highlightedTaskKey}
@@ -236,8 +255,7 @@ export default function RoadmapSection({ progress, openStepId, onOpenStep }: Roa
           שסיימה, המסך והרמז נעלמים; אם היא משלימה שוב, ה-unmount/mount
           המלא מאפס גם את מצב האנימציה הפנימי (useCelebrationTrigger),
           כך שהרצף החגיגי יתנגן מחדש מההתחלה, נשקל כרצוי, לא כתקלה. */}
-      {isJourneyComplete && <ScrollToCompletionHint />}
-      {isJourneyComplete && <CompletionCelebration />}
+      {isJourneyComplete && <JourneyFinale key={finaleRun} celebrate={finaleRun > 0} />}
     </div>
   );
 }

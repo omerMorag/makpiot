@@ -191,6 +191,20 @@ function stepTaskCount(stepId: number): number {
   return step?.tasks && step.tasks.length > 0 ? step.tasks.length : 1;
 }
 
+/** כל מפתחות המשימות במסלול שעוד לא סומנו ("stepId:taskIndex"). משמש
+ *  לזיהוי הרגע שבו המשתמשת מסמנת בעצמה את המשימה האחרונה (JourneyFinale). */
+export function missingStepTaskKeys(completedStepTasks: Set<string>): string[] {
+  const missing: string[] = [];
+  journeySteps.forEach((step) => {
+    const count = stepTaskCount(step.id);
+    for (let i = 0; i < count; i += 1) {
+      const key = `${step.id}:${i}`;
+      if (!completedStepTasks.has(key)) missing.push(key);
+    }
+  });
+  return missing;
+}
+
 /** בהינתן קבוצת מפתחות "stepId:taskIndex" שסומנו — אילו מזהי שלבים שלמים (כל המשימות שלהם מסומנות) */
 function deriveCompletedSteps(completedStepTasks: Set<string>): Set<number> {
   const done = new Set<number>();
