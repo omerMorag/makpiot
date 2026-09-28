@@ -11,7 +11,8 @@ async function getUserId(): Promise<string | null> {
   return typeof id === "string" && id.length > 0 ? id : null;
 }
 
-export async function DELETE(_request: Request, { params }: { params: { id: string } }) {
+export async function DELETE(_request: Request, props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
   const userId = await getUserId();
   if (!userId) return NextResponse.json({ error: "unauthorized" }, { status: 401 });
 

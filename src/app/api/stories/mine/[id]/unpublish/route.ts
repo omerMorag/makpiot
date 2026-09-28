@@ -16,7 +16,8 @@ async function getUserId(): Promise<string | null> {
  * לפרסום אוטומטי מחדש; אם תרצה לפרסם שוב תצטרך לבקש מחדש/לערוך — כרגע
  * הפעולה חד-סטרית לפי הספק). status הופך ל-"unpublished", לא חוזר ל-"pending".
  */
-export async function POST(_request: Request, { params }: { params: { id: string } }) {
+export async function POST(_request: Request, props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
   const userId = await getUserId();
   if (!userId) return NextResponse.json({ error: "unauthorized" }, { status: 401 });
 

@@ -5,7 +5,8 @@ import { db } from "@/db";
 import { stories } from "@/db/schema";
 
 /** דחייה — רק מתוך pending (שונה מ-remove, שהוא רק מתוך published) */
-export async function POST(_request: Request, { params }: { params: { id: string } }) {
+export async function POST(_request: Request, props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
   const admin = await requireAdmin();
   if (!admin.ok) return admin.response;
 

@@ -24,8 +24,8 @@ const VIEWPORT_MARGIN = 12;
  * ב-DOM כל הזמן, וה-hook הזה קובע רק visibility/pointerEvents לפי open.
  */
 export function useFloatingPosition(
-  triggerRef: RefObject<HTMLElement>,
-  panelRef: RefObject<HTMLElement>,
+  triggerRef: RefObject<HTMLElement | null>,
+  panelRef: RefObject<HTMLElement | null>,
   open: boolean,
   align: "start" | "end" = "end",
 ) {

@@ -9,7 +9,8 @@ import { adminRedactSchema } from "@/lib/validation/storySchemas";
  * עריכת redact ע"י אדמין — לצורך הסרת פרטים מזהים בלבד. כותבת שורת
  * story_edit_audit (diff לפני/אחרי) לפני ביצוע העדכון עצמו.
  */
-export async function PATCH(request: Request, { params }: { params: { id: string } }) {
+export async function PATCH(request: Request, props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
   const admin = await requireAdmin();
   if (!admin.ok) return admin.response;
 

@@ -5,7 +5,8 @@ import { db } from "@/db";
 import { stories } from "@/db/schema";
 
 /** פרטי סיפור מלאים בכל סטטוס — לצורך מודרציה */
-export async function GET(_request: Request, { params }: { params: { id: string } }) {
+export async function GET(_request: Request, props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
   const admin = await requireAdmin();
   if (!admin.ok) return admin.response;
 

@@ -8,7 +8,8 @@ import { stories } from "@/db/schema";
  * הסיפור קיים אבל pending/rejected/וכו', כולל אם זה סיפור pending של
  * המשתמשת המחוברת עצמה — היא רואה את הטיוטה שלה רק דרך /api/stories/mine).
  */
-export async function GET(_request: Request, { params }: { params: { id: string } }) {
+export async function GET(_request: Request, props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
   try {
     const [row] = await db
       .select()

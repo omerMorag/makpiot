@@ -6,7 +6,8 @@ import { storyReports } from "@/db/schema";
 import { reviewReportSchema } from "@/lib/validation/reportSchemas";
 
 /** סימון דיווח כ-reviewed/dismissed */
-export async function PATCH(request: Request, { params }: { params: { id: string } }) {
+export async function PATCH(request: Request, props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
   const admin = await requireAdmin();
   if (!admin.ok) return admin.response;
 

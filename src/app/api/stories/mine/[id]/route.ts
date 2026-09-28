@@ -17,7 +17,8 @@ async function getUserId(): Promise<string | null> {
  * אין נתיב קוד שמאפשר למשתמשת רגילה לקבוע סטטוס לסיפור שלה. עריכה מחזירה
  * את הסיפור למצב "pending" מחדש (עריכה מהותית דורשת אישור מחדש).
  */
-export async function PATCH(request: Request, { params }: { params: { id: string } }) {
+export async function PATCH(request: Request, props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
   const userId = await getUserId();
   if (!userId) return NextResponse.json({ error: "unauthorized" }, { status: 401 });
 
@@ -48,7 +49,8 @@ export async function PATCH(request: Request, { params }: { params: { id: string
 }
 
 /** מחיקה מלאה ע"י הבעלים — cascade לדיווחים/audit דרך ה-FK-ים */
-export async function DELETE(_request: Request, { params }: { params: { id: string } }) {
+export async function DELETE(_request: Request, props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
   const userId = await getUserId();
   if (!userId) return NextResponse.json({ error: "unauthorized" }, { status: 401 });
 
