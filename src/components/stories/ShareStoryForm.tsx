@@ -313,19 +313,6 @@ export default function ShareStoryForm({ mode, storyId, initialValues, onSuccess
         </p>
       </div>
 
-      <div>
-        <label className="mb-1 block text-xs font-semibold text-ink/55">
-          הטיפ שהיית נותנת למי שרק מתחילה (אופציונלי)
-        </label>
-        <textarea
-          value={values.personalTip}
-          onChange={(e) => update("personalTip", e.target.value)}
-          rows={3}
-          maxLength={1000}
-          className={inputClass()}
-        />
-      </div>
-
       {mode === "create" && (
         <div className="flex items-start gap-2 rounded-xl border-2 border-mist-200 bg-mist-50/60 p-3">
           <input

@@ -138,10 +138,10 @@ export default function TestChecklist({
       <p className="mb-4 text-sm leading-relaxed text-ink/60">
         סמני מה כבר עשית, ואז השווי לרשימה הרשמית של היחידה שבחרת.
       </p>
-      <p className="-mt-2 mb-4 flex items-center gap-1.5 text-xs font-semibold text-teal-700 sm:text-sm" data-testid="separate-date-legend">
+      <p className="-mt-2 mb-4 flex items-center gap-1 text-xs text-teal-700/80" data-testid="separate-date-legend">
         להוספת תאריך נפרד לבדיקה, לחצי על<span className="sr-only"> הפלוס</span>
-        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-teal-50 ring-1 ring-inset ring-teal-200" aria-hidden="true">
-          <Plus className="h-3 w-3" strokeWidth={2.75} />
+        <span className="flex h-4 w-4 items-center justify-center text-teal-600/70" aria-hidden="true">
+          <Plus className="h-3 w-3" strokeWidth={2.5} />
         </span>
       </p>
 
@@ -261,10 +261,10 @@ export default function TestChecklist({
                               onClick={() => toggleDateExpanded(subKey)}
                               aria-label={`הוספת תאריך נפרד: ${item.label}`}
                               title="הוספת תאריך נפרד"
-                              className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-teal-50 text-teal-700 ring-1 ring-inset ring-teal-200 transition-colors hover:bg-teal-100 hover:text-teal-800"
+                              className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-teal-600/60 transition-colors hover:bg-teal-50 hover:text-teal-700"
                               data-testid="separate-date-plus"
                             >
-                              <Plus className="h-3.5 w-3.5" strokeWidth={2.75} aria-hidden="true" />
+                              <Plus className="h-3 w-3" strokeWidth={2.5} aria-hidden="true" />
                             </button>
                           )}
                         </div>
