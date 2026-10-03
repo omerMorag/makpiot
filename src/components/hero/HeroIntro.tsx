@@ -104,7 +104,7 @@ export default function HeroIntro({ reducedMotion, onCtaClick }: HeroIntroProps)
         <img
           src="/brand/hen-full.png"
           alt="מקפיאות: תרנגולת המותג"
-          className="h-auto w-36 max-w-full shrink-0 object-contain sm:w-44 lg:w-[280px]"
+          className="hen-breathe h-auto w-36 max-w-full shrink-0 object-contain sm:w-44 lg:w-[280px]"
           style={{ filter: "drop-shadow(0 16px 28px rgba(36, 22, 25, 0.14))" }}
         />
       </div>

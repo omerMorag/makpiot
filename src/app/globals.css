@@ -285,3 +285,16 @@ input:focus-visible {
     opacity: 1 !important;
   }
 }
+
+/* "נשימה" עדינה לתרנגולת במסך הפתיחה: התרחבות קלה מלמטה, בלופ איטי. */
+@keyframes henBreathe {
+  0%, 100% { transform: scale(1, 1); }
+  50% { transform: scale(1.012, 1.03); }
+}
+.hen-breathe {
+  transform-origin: 50% 100%;
+  animation: henBreathe 3.8s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hen-breathe { animation: none; }
+}

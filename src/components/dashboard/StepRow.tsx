@@ -56,12 +56,8 @@ export default function StepRow({
   const isDone = totalTasks > 0 && doneTasks === totalTasks;
   const progressPercent = totalTasks === 0 ? 0 : Math.round((doneTasks / totalTasks) * 100);
 
-  // שלב שהושלם ומקופל: עיצוב "שקט" ופחות דומיננטי מבעל-כשל פעיל בכוונה —
-  // רקע/מסגרת אפרפרים שטוחים (בלי הדגשת teal), במקום הכרטיס הצבעוני שהיה
-  // כאן קודם. עדיין ברור שהושלם (תגית "השלמת את השלב" + progress + תרנגולת
-  // עם doneBadge) — רק לא "בולט" יותר משלב שעדיין פעיל. בפתיחה (isExpanded)
-  // נשאר אותו עיצוב מושתק, כדי שהמעבר קיפול<->פתיחה לא "יקפוץ" חזותית.
-  const doneCardClasses = "border-mist-200 bg-mist-50/70";
+  // שלב שהושלם: כרטיס בירוק-מנטה ותגית "השלמת את השלב" בולטת, כדי שיהיה ברור במבט אחד מה כבר מאחורייך.
+  const doneCardClasses = "border-warm-300 bg-warm-100/70";
   const activeCardClasses = "border-mist-200 bg-white";
 
   return (
@@ -79,17 +75,21 @@ export default function StepRow({
             sizeClassName={CHECKLIST_HEN_SIZE}
             activeRing={isExpanded}
             doneBadge={isDone}
-            className={`mt-0.5 ${isDone ? "opacity-80" : ""}`}
+            className="mt-0.5"
           />
         )}
 
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
-            <span className="inline-flex h-6 min-w-6 items-center justify-center rounded-full bg-mist-100 px-2 text-xs font-bold text-deep">
+            <span
+              className={`inline-flex h-6 min-w-6 items-center justify-center rounded-full px-2 text-xs font-bold ${
+                isDone ? "bg-warm-500 text-ink" : "bg-mist-100 text-deep"
+              }`}
+            >
               {step.id}
             </span>
             <span
-              className={`text-base font-semibold sm:text-lg ${isDone ? "text-ink/60" : "text-ink"}`}
+              className="text-base font-semibold text-ink sm:text-lg"
             >
               {step.title}
             </span>
@@ -101,8 +101,8 @@ export default function StepRow({
           </div>
 
           {isDone ? (
-            <p className="mt-1.5 inline-flex items-center gap-1.5 text-sm font-semibold text-teal-700">
-              <Check className="h-4 w-4" strokeWidth={3} />
+            <p className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-warm-500 px-3 py-1 text-sm font-bold text-ink shadow-sm">
+              <Check className="h-4 w-4" strokeWidth={3} aria-hidden="true" />
               השלמת את השלב
             </p>
           ) : (
@@ -134,19 +134,21 @@ export default function StepRow({
             </>
           )}
 
-          <button
-            type="button"
-            onClick={() => onToggleExpand(step.id)}
-            aria-expanded={isExpanded}
-            aria-controls={panelId}
-            className="no-print mt-2.5 inline-flex items-center gap-1 text-sm font-medium text-teal-700 transition-colors hover:text-teal-800"
-          >
-            <ChevronDown
-              className={`h-4 w-4 transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`}
-              strokeWidth={2.5}
-            />
-            {isExpanded ? "הסתרת המשימות" : "המשימות שלי"}
-          </button>
+          {!(isDone && !isExpanded) && (
+            <button
+              type="button"
+              onClick={() => onToggleExpand(step.id)}
+              aria-expanded={isExpanded}
+              aria-controls={panelId}
+              className="no-print mt-2.5 inline-flex items-center gap-1 text-sm font-medium text-teal-700 transition-colors hover:text-teal-800"
+            >
+              <ChevronDown
+                className={`h-4 w-4 transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`}
+                strokeWidth={2.5}
+              />
+              {isExpanded ? "הסתרת המשימות" : "המשימות שלי"}
+            </button>
+          )}
 
           <div
             id={panelId}
@@ -193,7 +195,7 @@ export default function StepRow({
             </div>
           </div>
 
-          {step.readMoreHref && (
+          {step.readMoreHref && (!isDone || isExpanded) && (
             <div className="no-print mt-3">
               {step.ctaPrompt && (
                 <p className="mb-1 text-xs font-medium text-ink/50 sm:text-sm">{step.ctaPrompt}</p>
@@ -212,6 +214,20 @@ export default function StepRow({
           )}
         </div>
       </div>
+
+      {isDone && !isExpanded && (
+        <div className="no-print -mb-1 mt-1 flex justify-end">
+          <button
+            type="button"
+            onClick={() => onToggleExpand(step.id)}
+            aria-expanded={false}
+            aria-controls={panelId}
+            className="text-[11px] text-ink/40 underline decoration-ink/15 underline-offset-2 transition-colors hover:text-ink/65 sm:text-xs"
+          >
+            רגע, שכחתי משימה
+          </button>
+        </div>
+      )}
     </li>
   );
 }

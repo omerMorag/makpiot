@@ -80,10 +80,6 @@ export default function PersonalIntroSection({ reducedMotion, onCtaClick }: Pers
           </p>
         </div>
 
-        <p className="text-sm font-medium text-ink/50" style={{ fontStyle: "italic" }}>
-          מייסדת מקפיאות 💛
-        </p>
-
         <button
           type="button"
           onClick={onCtaClick}
